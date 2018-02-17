@@ -2,8 +2,15 @@
     {
         "moduleName" : "module1",
         "path"       : "modules/module1/module1.py",
-        "execute"    : true ,
-        "description": "",
+        "execute"    : false ,
+        "description": "A simple module for demo purposed",
         "owner"      : ""
+    },
+    {
+        "moduleName" : "NNmodule",
+        "path"       : "modules/NNmodule/NNmodule.py",
+        "execute"    : true ,
+        "description": "A module for testing the basic NN module",
+        "owner"      : "Sankha S. Mukherjee"
     }
 ]
