@@ -5,6 +5,8 @@ import tensorflow as tf
 
 from lib.NNlib import NNmodel
 
+import matplotlib.pyplot as plt
+
 config = json.load(open('../config/config.json'))
 logBase = config['logging']['logBase'] + '.modules.NNmodule.NNmodule'
 
@@ -30,7 +32,17 @@ def runModel(logger):
     activations = [tf.tanh, tf.tanh, None]
     model       = NNmodel.NNmodel(inpSize, opSize, layers, activations)
 
+    weights = model.getWeights()
+    for w in weights:
+        print(w)
+
     model.fitAdam(X, y)
+
+    weights1 = model.getWeights()
+    for w, w1 in zip(weights, weights1):
+        print(w-w1)
+
+
 
     return
 
