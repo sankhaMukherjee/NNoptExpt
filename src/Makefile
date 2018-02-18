@@ -18,7 +18,9 @@ runT:
 
 clean:
 	../bin/clean.sh
-	rm ../data/checkpoints/*
+
+cleanCheckPoints:
+	rm -rf ../data/checkpoints/*; true
 
 # ---- Easy way of checking the functions ---------
 checkLog:

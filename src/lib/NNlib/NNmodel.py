@@ -1,12 +1,15 @@
 from logs import logDecorator as lD
 from datetime import datetime as dt
 
-import json
+import json, os
 import numpy       as np 
 import tensorflow  as tf
 
 config = json.load(open('../config/config.json'))
 logBase = config['logging']['logBase'] + '.lib.NNlib.NNmodel'
+
+# Saving variablez
+# https://stackoverflow.com/questions/45179556/key-variable-name-not-found-in-checkpoint-tensorflow
 
 class NNmodel():
     '''[summary]
@@ -42,10 +45,12 @@ class NNmodel():
         self.checkPoint = None
         self.optimizer = None
 
+        self.fitted = False
+        self.currentErrors = None
+
         try:
 
             logger.info('Generating a new model')
-
             self.inpSize = inpSize
             self.Inp     = tf.placeholder(dtype=tf.float32, shape=inpSize, name='Inp')
             self.Op      = tf.placeholder(dtype=tf.float32, shape=opSize, name='Op')
@@ -107,27 +112,42 @@ class NNmodel():
             return
 
         try:
+
+
             now = dt.now().strftime('%Y-%m-%d--%H-%M-%S')
             saver = tf.train.Saver(tf.trainable_variables())
+
             if self.optimizer is None:
+                logger.info('Generating a new optimizer ...')
                 self.optimizer = tf.train.AdamOptimizer(name = 'opt', **params).minimize( self.err )
 
             with tf.Session() as sess:
 
                 sess.run(tf.global_variables_initializer())
                 if self.checkPoint is not None:
+                    logger.info('An earlier checkpoint is available at {}. Using that.'.format(self.checkPoint))
                     saver.restore(sess, self.checkPoint)
                 
-                print('Optimization ...')
+                logger.info('Optimization in progress ...')
+                if self.currentErrors is None:
+                    self.currentErrors = []
+
                 for i in range(N):
                     _, err = sess.run([self.optimizer, self.err ], feed_dict={
                             self.Inp: X, self.Op: y
                         })
-                    # print('{:6d} --> {}'.format(i, err))
+                    self.currentErrors.append(err)
 
-                self.checkPoint = saver.save(sess, '../data/checkpoints/{}.ckpt'.format(now))
-                print(self.checkPoint)
+                    if i %100 == 0:
+                        print(i, err)
 
+                    logger.info('Optimization error at iteration {} = {}.'.format(i, err))
+                    
+                # Checkpoint the session before you exit ...
+                # ------------------------------------------
+                os.makedirs('../data/checkpoints/{}'.format(now))
+                self.checkPoint = saver.save(sess, '../data/checkpoints/{0}/{0}.ckpt'.format(now))
+                logger.info( 'Checkpoint saved at : {}'.format(self.checkPoint))
 
         except Exception as e:
             logger.error('Unable to optimize the model given the data: {}'.format(str(e)))
@@ -174,4 +194,67 @@ class NNmodel():
 
 
         return weights
+
+    @lD.log( logBase + '.NNmodel.setWeights' )
+    def setWeights(logger, self, weights):
+
+        try:
+            nW = len(self.allW)
+            W = weights[:nW]
+            B = weights[nW:]
+
+            now = dt.now().strftime('%Y-%m-%d--%H-%M-%S')
+            saver = tf.train.Saver(tf.trainable_variables())
+
+            with tf.Session() as sess:
+
+                sess.run(tf.global_variables_initializer())
+                if self.checkPoint is not None:
+                    logger.info('An earlier checkpoint is available at {}. Using that.'.format(self.checkPoint))
+                    saver.restore(sess, self.checkPoint)
+
+                for i in range(len(W)):
+                    sess.run(tf.assign( self.allW[i], W[i] ))
+
+                for i in range(len(B)):
+                    sess.run(tf.assign( self.allB[i], B[i] ))
+
+                # Checkpoint the session before you exit ...
+                # ------------------------------------------
+                os.makedirs('../data/checkpoints/{}'.format(now))
+                self.checkPoint = saver.save(sess, '../data/checkpoints/{0}/{0}.ckpt'.format(now))
+                logger.info( 'Checkpoint saved at : {}'.format(self.checkPoint))
+
+        except Exception as e:
+            logger.error('Problem with setting weights to new values ...: {}'.format(str(e)))
+
+        return
+
+    @lD.log( logBase + '.NNmodel.predict' )
+    def predict(logger, self, X):
+
+        yHat = None
+
+
+        try:
+            now = dt.now().strftime('%Y-%m-%d--%H-%M-%S')
+            saver = tf.train.Saver(tf.trainable_variables())
+
+            with tf.Session() as sess:
+
+                sess.run(tf.global_variables_initializer())
+                if self.checkPoint is not None:
+                    logger.info('An earlier checkpoint is available at {}. Using that.'.format(self.checkPoint))
+                    saver.restore(sess, self.checkPoint)
+
+                yHat = sess.run(self.result, feed_dict = {self.Inp: X})
+                logger.info('Calculated yHat: {}'.format( yHat ))
+
+                return yHat
+
+        except Exception as e:
+            logger.error( 'Unable to make a prediction: {}'.format(str(e)) )
+
+        return yHat
+
 

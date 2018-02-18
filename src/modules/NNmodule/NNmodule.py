@@ -24,24 +24,32 @@ def runModel(logger):
 
     X = np.random.rand(2, 10000)
     y = (  2*np.sin(X[0, :]) + 3*np.cos(X[1, :]) ).reshape(1, -1)
+    # y = (  2*X[0, :] + 3*X[1, :] ).reshape(1, -1)
 
     print('We are in the NNmodule')
     inpSize     = (2, None)
     opSize      = (1, None)
     layers      = (5, 8, 1)
     activations = [tf.tanh, tf.tanh, None]
-    model       = NNmodel.NNmodel(inpSize, opSize, layers, activations)
+    model1      = NNmodel.NNmodel(inpSize, opSize, layers, activations)
+    model2      = NNmodel.NNmodel(inpSize, opSize, layers, activations)
 
-    weights = model.getWeights()
-    for w in weights:
-        print(w)
+    # Fitting the model.
+    print('Fitting the model here ...')
+    model1.fitAdam(X, y, N=10000)
 
-    model.fitAdam(X, y)
+    print('Setting weights in the next model ...')
+    weights1 = model1.getWeights()
+    model2.setWeights( weights1 )
 
-    weights1 = model.getWeights()
-    for w, w1 in zip(weights, weights1):
-        print(w-w1)
+    print('Making predictions with the next model ')
+    yHat = model2.predict(X)
 
+    print('plotting the data')
+    plt.figure()
+    plt.plot(y.ravel(), yHat.ravel(), '+')
+    plt.savefig('../results/img/compare.png')
+    plt.close('all')
 
 
     return
