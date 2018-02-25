@@ -114,7 +114,7 @@ class NNmodel():
         try:
 
 
-            now = dt.now().strftime('%Y-%m-%d--%H-%M-%S')
+            now = dt.now().strftime('%Y-%m-%d--%H-%M-%S-%f')
             saver = tf.train.Saver(tf.trainable_variables())
 
             if self.optimizer is None:
@@ -203,7 +203,7 @@ class NNmodel():
             W = weights[:nW]
             B = weights[nW:]
 
-            now = dt.now().strftime('%Y-%m-%d--%H-%M-%S')
+            now = dt.now().strftime('%Y-%m-%d--%H-%M-%S-%f')
             saver = tf.train.Saver(tf.trainable_variables())
 
             with tf.Session() as sess:
@@ -237,7 +237,7 @@ class NNmodel():
 
 
         try:
-            now = dt.now().strftime('%Y-%m-%d--%H-%M-%S')
+            now = dt.now().strftime('%Y-%m-%d--%H-%M-%S-%f')
             saver = tf.train.Saver(tf.trainable_variables())
 
             with tf.Session() as sess:
@@ -250,6 +250,13 @@ class NNmodel():
                 yHat = sess.run(self.result, feed_dict = {self.Inp: X})
                 logger.info('Calculated yHat: {}'.format( yHat ))
 
+                # Checkpoint the session before you exit ...
+                # ------------------------------------------
+                os.makedirs('../data/checkpoints/{}'.format(now))
+                self.checkPoint = saver.save(sess, '../data/checkpoints/{0}/{0}.ckpt'.format(now))
+                logger.info( 'Checkpoint saved at : {}'.format(self.checkPoint))
+
+
                 return yHat
 
         except Exception as e:
@@ -257,4 +264,35 @@ class NNmodel():
 
         return yHat
 
+    @lD.log( logBase + '.NNmodel.predict' )
+    def err(logger, self, X, y):
+
+        errVal = None
+        try:
+            now = dt.now().strftime('%Y-%m-%d--%H-%M-%S-%f')
+            saver = tf.train.Saver(tf.trainable_variables())
+
+            with tf.Session() as sess:
+
+                sess.run(tf.global_variables_initializer())
+                if self.checkPoint is not None:
+                    logger.info('An earlier checkpoint is available at {}. Using that.'.format(self.checkPoint))
+                    saver.restore(sess, self.checkPoint)
+
+                errVal = sess.run(self.err, feed_dict = {self.Inp: X, self.Op: y})
+                logger.info('Calculated errVal: {}'.format( errVal ))
+
+                # Checkpoint the session before you exit ...
+                # ------------------------------------------
+                os.makedirs('../data/checkpoints/{}'.format(now))
+                self.checkPoint = saver.save(sess, '../data/checkpoints/{0}/{0}.ckpt'.format(now))
+                logger.info( 'Checkpoint saved at : {}'.format(self.checkPoint))
+
+
+                return errVal
+
+        except Exception as e:
+            logger.error( 'Unable to make a prediction: {}'.format(str(e)) )
+
+        return errVal
 
