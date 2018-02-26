@@ -44,7 +44,7 @@ def runModel(logger):
 
     print('Making predictions with the next model ')
     yHat = model2.predict(X)
-
+    
     print('plotting the data')
     plt.figure()
     plt.plot(y.ravel(), yHat.ravel(), '+')

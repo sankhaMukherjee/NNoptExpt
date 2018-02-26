@@ -32,10 +32,33 @@ def runModel(logger):
         "layers"       : (5, 8, 1), 
         "activations"  : [tf.tanh, tf.tanh, None],
     }
-    
+
+    print('Generating the GA model ...')    
     initClass = GAlib.GA( NNmodel.NNmodel, initParams)
-    yHats = initClass.predict(X)
-    print(yHats)
+
+    # print('Generating the predictions')
+    # yHats = initClass.predict(X)
+    # print(yHats)
+
+    print('Calculating the errors for the current population ...')
+    errors = initClass.err(X, y)
+    for e in errors:
+        print('{}'.format(e))
+
+    print('Doing mutation')
+    initClass.mutate()
+
+    print('Calculating the errors for the current population again ...')
+    errors = initClass.err(X, y)
+    for e in errors:
+        print('{}'.format(e))
+
+    for p in initClass.population:
+        weights = p.getWeights()
+        for w in weights:
+            print(w)
+
+    
 
     return
 

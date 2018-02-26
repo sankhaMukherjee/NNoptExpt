@@ -1,9 +1,11 @@
-from logs import logDecorator as lD
+from logs     import logDecorator as lD
+from time     import time
 from datetime import datetime as dt
 
-import json, os
+import json, os, shutil
 import numpy       as np 
 import tensorflow  as tf
+
 
 config = json.load(open('../config/config.json'))
 logBase = config['logging']['logBase'] + '.lib.NNlib.NNmodel'
@@ -49,6 +51,8 @@ class NNmodel():
         self.currentErrors = None
 
         try:
+
+            self.NNmodelConfig = json.load(open('../config/NNmodelConfig.json'))
 
             logger.info('Generating a new model')
             self.inpSize = inpSize
@@ -145,6 +149,13 @@ class NNmodel():
                     
                 # Checkpoint the session before you exit ...
                 # ------------------------------------------
+                # Checkpoint the session before you exit ...
+                # ------------------------------------------
+                if (self.checkPoint is not None) and (not self.NNmodelConfig['keepChkPts']):
+                    # delete the old checkpoints first
+                    folder = os.path.dirname(self.checkPoint)
+                    shutil.rmtree( folder )
+
                 os.makedirs('../data/checkpoints/{}'.format(now))
                 self.checkPoint = saver.save(sess, '../data/checkpoints/{0}/{0}.ckpt'.format(now))
                 logger.info( 'Checkpoint saved at : {}'.format(self.checkPoint))
@@ -206,24 +217,47 @@ class NNmodel():
             now = dt.now().strftime('%Y-%m-%d--%H-%M-%S-%f')
             saver = tf.train.Saver(tf.trainable_variables())
 
+            t0 = time()
             with tf.Session() as sess:
 
+                t1 = time()
                 sess.run(tf.global_variables_initializer())
                 if self.checkPoint is not None:
                     logger.info('An earlier checkpoint is available at {}. Using that.'.format(self.checkPoint))
                     saver.restore(sess, self.checkPoint)
 
+                t2 = time()
                 for i in range(len(W)):
                     sess.run(tf.assign( self.allW[i], W[i] ))
 
                 for i in range(len(B)):
                     sess.run(tf.assign( self.allB[i], B[i] ))
 
+                t3 = time()
                 # Checkpoint the session before you exit ...
                 # ------------------------------------------
+                if (self.checkPoint is not None) and (not self.NNmodelConfig['keepChkPts']):
+                    # delete the old checkpoints first
+                    folder = os.path.dirname(self.checkPoint)
+                    shutil.rmtree( folder )
+
+                t4 = time()
                 os.makedirs('../data/checkpoints/{}'.format(now))
                 self.checkPoint = saver.save(sess, '../data/checkpoints/{0}/{0}.ckpt'.format(now))
                 logger.info( 'Checkpoint saved at : {}'.format(self.checkPoint))
+
+                t5 = time()
+
+            toPrint = []
+            toPrint.append('--------------------[{}]-----------------'.format(now))
+            toPrint.append('[{}] [setWeights] Time to start a session     : {:.3}'.format( now,  t1 - t0))
+            toPrint.append('[{}] [setWeights] Time to read a checkpoint   : {:.3}'.format( now,  t2 - t1))
+            toPrint.append('[{}] [setWeights] Time to calculate a value   : {:.3}'.format( now,  t3 - t2))
+            toPrint.append('[{}] [setWeights] Time to delete old folder   : {:.3}'.format( now,  t4 - t3))
+            toPrint.append('[{}] [setWeights] Time to save new checkpoint : {:.3}'.format( now,  t5 - t4))
+            if self.NNmodelConfig['showTimes']:
+                print('\n'.join(toPrint))
+            logger.info('\n'.join(toPrint))
 
         except Exception as e:
             logger.error('Problem with setting weights to new values ...: {}'.format(str(e)))
@@ -232,32 +266,65 @@ class NNmodel():
 
     @lD.log( logBase + '.NNmodel.predict' )
     def predict(logger, self, X):
-
+        '''[summary]
+        
+        [description]
+        
+        Decorators:
+            lD.log
+        
+        Arguments:
+            logger {[type]} -- [description]
+            self {[type]} -- [description]
+            X {[type]} -- [description]
+        
+        Returns:
+            [type] -- [description]
+        '''
         yHat = None
-
 
         try:
             now = dt.now().strftime('%Y-%m-%d--%H-%M-%S-%f')
             saver = tf.train.Saver(tf.trainable_variables())
 
+            t0 = time()
             with tf.Session() as sess:
 
+                t1 = time()
                 sess.run(tf.global_variables_initializer())
                 if self.checkPoint is not None:
                     logger.info('An earlier checkpoint is available at {}. Using that.'.format(self.checkPoint))
                     saver.restore(sess, self.checkPoint)
 
+                t2 = time()
                 yHat = sess.run(self.result, feed_dict = {self.Inp: X})
                 logger.info('Calculated yHat: {}'.format( yHat ))
 
+                t3 = time()
                 # Checkpoint the session before you exit ...
                 # ------------------------------------------
+                if (self.checkPoint is not None) and (not self.NNmodelConfig['keepChkPts']):
+                    # delete the old checkpoints first
+                    folder = os.path.dirname(self.checkPoint)
+                    shutil.rmtree( folder )
+
+                t4 = time()
                 os.makedirs('../data/checkpoints/{}'.format(now))
                 self.checkPoint = saver.save(sess, '../data/checkpoints/{0}/{0}.ckpt'.format(now))
                 logger.info( 'Checkpoint saved at : {}'.format(self.checkPoint))
 
-
-                return yHat
+                t5 = time()
+                
+            toPrint = []
+            toPrint.append('--------------------[{}]-----------------'.format(now))
+            toPrint.append('[{}] [predict] Time to start a session     : {:.3}'.format( now,  t1 - t0))
+            toPrint.append('[{}] [predict] Time to read a checkpoint   : {:.3}'.format( now,  t2 - t1))
+            toPrint.append('[{}] [predict] Time to calculate a value   : {:.3}'.format( now,  t3 - t2))
+            toPrint.append('[{}] [predict] Time to delete old folder   : {:.3}'.format( now,  t4 - t3))
+            toPrint.append('[{}] [predict] Time to save new checkpoint : {:.3}'.format( now,  t5 - t4))
+            if self.NNmodelConfig['showTimes']:
+                print('\n'.join(toPrint))
+            logger.info('\n'.join(toPrint))
 
         except Exception as e:
             logger.error( 'Unable to make a prediction: {}'.format(str(e)) )
@@ -265,31 +332,51 @@ class NNmodel():
         return yHat
 
     @lD.log( logBase + '.NNmodel.predict' )
-    def err(logger, self, X, y):
+    def errorVal(logger, self, X, y):
 
         errVal = None
         try:
             now = dt.now().strftime('%Y-%m-%d--%H-%M-%S-%f')
             saver = tf.train.Saver(tf.trainable_variables())
 
+            t0 = time()
             with tf.Session() as sess:
 
+                t1 = time()
                 sess.run(tf.global_variables_initializer())
                 if self.checkPoint is not None:
                     logger.info('An earlier checkpoint is available at {}. Using that.'.format(self.checkPoint))
                     saver.restore(sess, self.checkPoint)
 
+                t2 = time()
                 errVal = sess.run(self.err, feed_dict = {self.Inp: X, self.Op: y})
                 logger.info('Calculated errVal: {}'.format( errVal ))
 
+                t3 = time()
                 # Checkpoint the session before you exit ...
                 # ------------------------------------------
+                if (self.checkPoint is not None) and (not self.NNmodelConfig['keepChkPts']):
+                    # delete the old checkpoints first
+                    folder = os.path.dirname(self.checkPoint)
+                    shutil.rmtree( folder )
+
+                t4 = time()
                 os.makedirs('../data/checkpoints/{}'.format(now))
                 self.checkPoint = saver.save(sess, '../data/checkpoints/{0}/{0}.ckpt'.format(now))
                 logger.info( 'Checkpoint saved at : {}'.format(self.checkPoint))
 
+                t5 = time()
 
-                return errVal
+            toPrint = []
+            toPrint.append('--------------------[{}]-----------------'.format(now))
+            toPrint.append('[{}] [errorVal] Time to start a session     : {:.3}'.format( now,  t1 - t0))
+            toPrint.append('[{}] [errorVal] Time to read a checkpoint   : {:.3}'.format( now,  t2 - t1))
+            toPrint.append('[{}] [errorVal] Time to calculate a value   : {:.3}'.format( now,  t3 - t2))
+            toPrint.append('[{}] [errorVal] Time to delete old folder   : {:.3}'.format( now,  t4 - t3))
+            toPrint.append('[{}] [errorVal] Time to save new checkpoint : {:.3}'.format( now,  t5 - t4))
+            if self.NNmodelConfig['showTimes']:
+                print('\n'.join(toPrint))
+            logger.info('\n'.join(toPrint))
 
         except Exception as e:
             logger.error( 'Unable to make a prediction: {}'.format(str(e)) )

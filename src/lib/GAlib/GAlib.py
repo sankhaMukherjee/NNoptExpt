@@ -2,6 +2,7 @@ from logs import logDecorator as lD
 import json, os
 
 import numpy as np
+from tqdm import tqdm
 
 config = json.load(open('../config/config.json'))
 logBase = config['logging']['logBase'] + '.lib.libGA.GA'
@@ -47,6 +48,10 @@ class GA():
                 4. It must have a `predict()` method that will allow
                    the function to be evaluated for provided values of
                    input.
+                5. It must have an `errorVal()` method that will allow the current
+                   function to find the current error values. The method of
+                   calculating the error is left to the descretion of the 
+                   neural network.
             initParams {dict} -- Parameters that will be passed to the 
                 class for generating an instance. 
         
@@ -60,6 +65,7 @@ class GA():
         try:
             self.GAconfig   = json.load( open('../config/GAconfig.json') )
             self.population = [ nnClass(**initParams) for _ in range(self.GAconfig['numChildren'])]
+            self.properConfig = True
 
         except Exception as e:
             logger.error('Unable to initialize the GA: {}\n'.format(str(e)))
@@ -88,4 +94,114 @@ class GA():
 
         return
 
+    @lD.log(logBase + '.err')
+    def err(logger, self, X, y):
+        '''calculate the errors for the population
+        
+        [description]
+        
+        Decorators:
+            lD.log
+        
+        Arguments:
+            logger {[type]} -- [description]
+            self {[type]} -- [description]
+            X {[type]} -- [description]
+            y {[type]} -- [description]
+        
+        Returns:
+            [type] -- [description]
+        '''
+
+        try:
+            
+            if self.properConfig:
+                self.currentErr = np.array([p.errorVal(X, y) for p in self.population])
+            
+            return self.currentErr
+
+        except Exception as e:
+            logger.error('Unable to generate errors for the population: {}'.format(str(e)))
+
+        return
+
+    @lD.log( logBase + '.printErrors' )
+    def printErrors(logger, self):
+        '''[summary]
+        
+        [description]
+        
+        Decorators:
+            lD.log
+        
+        Arguments:
+            logger {[type]} -- [description]
+            self {[type]} -- [description]
+        '''
+
+        try:
+            if not self.properConfig:
+                logger.error('The GA has not been initialized properly. This step is skipped ...')
+                return
+
+            if self.currentErr is None:
+                logger.error('Errors have not been calculated yet. This step will be skipped ...')
+                return
+
+            print('[{:.4}] | [{:.4}] | [{:.4}] '.format( self.currentErr.min(), self.currentErr.mean(), self.currentErr.max() ))
+
+
+        except Exception as e:
+            logger.error('Unable to print the error: {}'.format(str(e)))
+
+        return
+
+    @lD.log( logBase + '.mutate' )
+    def mutate(logger, self):
+        '''[summary]
+        
+        [description]
+        
+        Decorators:
+            lD.log
+        
+        Arguments:
+            logger {[type]} -- [description]
+            self {[type]} -- [description]
+        '''
+
+        try:
+            if not self.properConfig:
+                logger.error('The GA has not been initialized properly. This step is skipped ...')
+                return
+
+            if self.currentErr is None:
+                logger.error('Errors have not been calculated yet. This step will be skipped ...')
+                return
+
+            sortIndex = np.argsort( self.currentErr )
+            self.population = [ self.population[i]  for i in sortIndex ]
+            self.currentErr = [ self.currentErr[i]  for i in sortIndex ]
+
+            for i in tqdm(range(len(self.population))):
+
+                logger.info('Mutating value [{}]'.format(i))
+
+                if self.GAconfig['elitism']['toDo'] and (i < self.GAconfig['elitism']['numElite']):
+                    logger.info('Skipping this due to elitism [{}]'.format(i))
+                    continue
+                
+                logger.info('Updating weights for the new population [{}]'.format(i))
+                weights = self.population[i].getWeights()
+                newWeights = []
+                for w in weights:
+                    t = w*( 1 + 2*self.GAconfig['mutation']['multiplier']*(np.random.random(w.shape) - 0.5) )
+                    newWeights.append( t )
+
+                self.population[i].setWeights( newWeights )
+
+        except Exception as e:
+            logger.error('Unable to do mutation: {}'.format(str(e)))
+
+        return
 
