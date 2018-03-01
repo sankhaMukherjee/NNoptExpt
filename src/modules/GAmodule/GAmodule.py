@@ -53,10 +53,19 @@ def runModel(logger):
     for e in errors:
         print('{}'.format(e))
 
-    for p in initClass.population:
-        weights = p.getWeights()
-        for w in weights:
-            print(w)
+    print('Before crossover ...')
+    initClass.printErrors()
+
+    print('Performing crossover ...')
+    initClass.crossover(X, y)
+
+    print('After crossover ...')
+    initClass.printErrors()
+
+    # for p in initClass.population:
+    #     weights = p.getWeights()
+    #     for w in weights:
+    #         print(w)
 
     
 
