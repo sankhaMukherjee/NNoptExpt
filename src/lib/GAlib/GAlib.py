@@ -152,7 +152,7 @@ class GA():
                 return
 
             self.currentErr = np.array(self.currentErr)
-            print('[{:.4}] | [{:.4}] | [{:.4}] '.format( self.currentErr.min(), self.currentErr.mean(), self.currentErr.max() ))
+            print('[{:}] | [{:}] | [{:}] '.format( self.currentErr.min(), self.currentErr.mean(), self.currentErr.max() ))
 
 
         except Exception as e:
