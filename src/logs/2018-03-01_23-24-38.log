@@ -1,0 +1,524 @@
+2018-03-01 23:24:38,133 - NNoptExpt - INFO - Starting the main program ...
+2018-03-01 23:24:38,133 - NNoptExpt.importModules - INFO - Starting the function [importModules] ...
+2018-03-01 23:24:38,133 - NNoptExpt.importModules - INFO - Module module1 is being skipped
+2018-03-01 23:24:38,133 - NNoptExpt.importModules - INFO - Module NNmodule is being skipped
+2018-03-01 23:24:38,133 - NNoptExpt.importModules - INFO - Module GAmodule is being executed
+2018-03-01 23:24:39,965 - NNoptExpt.modules.GAmodule.GAmodule.main - INFO - Starting the function [main] ...
+2018-03-01 23:24:39,965 - NNoptExpt.modules.GAmodule.GAmodule.runModel - INFO - Starting the function [runModel] ...
+2018-03-01 23:24:39,965 - NNoptExpt.lib.libGA.GA.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:39,966 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:39,966 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,028 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 6.259608e-02 seconds
+2018-03-01 23:24:40,028 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,029 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,069 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.030299e-02 seconds
+2018-03-01 23:24:40,069 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,069 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,110 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.093790e-02 seconds
+2018-03-01 23:24:40,110 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,111 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,152 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.136610e-02 seconds
+2018-03-01 23:24:40,152 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,152 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,192 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.005527e-02 seconds
+2018-03-01 23:24:40,192 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,192 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,233 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.061079e-02 seconds
+2018-03-01 23:24:40,233 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,233 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,275 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.204416e-02 seconds
+2018-03-01 23:24:40,275 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,275 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,317 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.133201e-02 seconds
+2018-03-01 23:24:40,317 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,317 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,359 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.203606e-02 seconds
+2018-03-01 23:24:40,359 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,359 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,399 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.033709e-02 seconds
+2018-03-01 23:24:40,400 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,400 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,439 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 3.946805e-02 seconds
+2018-03-01 23:24:40,439 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,439 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,480 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.043579e-02 seconds
+2018-03-01 23:24:40,480 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,480 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,519 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 3.941607e-02 seconds
+2018-03-01 23:24:40,519 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,520 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,560 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.058862e-02 seconds
+2018-03-01 23:24:40,560 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,561 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,647 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 8.624506e-02 seconds
+2018-03-01 23:24:40,647 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,647 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,687 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.021597e-02 seconds
+2018-03-01 23:24:40,687 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,687 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,727 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.014897e-02 seconds
+2018-03-01 23:24:40,728 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,728 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,769 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.092216e-02 seconds
+2018-03-01 23:24:40,769 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,769 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,808 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 3.958988e-02 seconds
+2018-03-01 23:24:40,809 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,809 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,850 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.121995e-02 seconds
+2018-03-01 23:24:40,850 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,850 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,890 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 3.999496e-02 seconds
+2018-03-01 23:24:40,890 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,890 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,931 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.112601e-02 seconds
+2018-03-01 23:24:40,932 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,932 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:40,975 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.286814e-02 seconds
+2018-03-01 23:24:40,975 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:40,975 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,018 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.357290e-02 seconds
+2018-03-01 23:24:41,018 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,019 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,061 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.211116e-02 seconds
+2018-03-01 23:24:41,061 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,061 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,104 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.355192e-02 seconds
+2018-03-01 23:24:41,105 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,105 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,148 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.318404e-02 seconds
+2018-03-01 23:24:41,148 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,148 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,192 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.393125e-02 seconds
+2018-03-01 23:24:41,192 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,192 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,235 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.270697e-02 seconds
+2018-03-01 23:24:41,235 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,235 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,277 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.219699e-02 seconds
+2018-03-01 23:24:41,278 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,278 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,322 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.438496e-02 seconds
+2018-03-01 23:24:41,322 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,322 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,365 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.254794e-02 seconds
+2018-03-01 23:24:41,365 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,365 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,407 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.220986e-02 seconds
+2018-03-01 23:24:41,407 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,408 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,452 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.418588e-02 seconds
+2018-03-01 23:24:41,452 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,452 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,494 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.227710e-02 seconds
+2018-03-01 23:24:41,494 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,495 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,538 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.351592e-02 seconds
+2018-03-01 23:24:41,538 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,538 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,580 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.190397e-02 seconds
+2018-03-01 23:24:41,580 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,580 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,623 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.283595e-02 seconds
+2018-03-01 23:24:41,623 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,624 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,666 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.246998e-02 seconds
+2018-03-01 23:24:41,666 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,666 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,710 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.420996e-02 seconds
+2018-03-01 23:24:41,710 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,711 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,753 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.290986e-02 seconds
+2018-03-01 23:24:41,754 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,754 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,796 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.275775e-02 seconds
+2018-03-01 23:24:41,797 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,797 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,840 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.296613e-02 seconds
+2018-03-01 23:24:41,840 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,840 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,883 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.333115e-02 seconds
+2018-03-01 23:24:41,883 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,884 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:41,985 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 1.014168e-01 seconds
+2018-03-01 23:24:41,985 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:41,985 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,025 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 3.983879e-02 seconds
+2018-03-01 23:24:42,025 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,025 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,067 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.161310e-02 seconds
+2018-03-01 23:24:42,067 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,067 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,107 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.017115e-02 seconds
+2018-03-01 23:24:42,107 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,108 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,148 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.015374e-02 seconds
+2018-03-01 23:24:42,148 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,148 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,189 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.130888e-02 seconds
+2018-03-01 23:24:42,189 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,189 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,229 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.016995e-02 seconds
+2018-03-01 23:24:42,230 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,230 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,270 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.028988e-02 seconds
+2018-03-01 23:24:42,270 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,270 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,311 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.047918e-02 seconds
+2018-03-01 23:24:42,311 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,311 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,352 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.125381e-02 seconds
+2018-03-01 23:24:42,352 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,352 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,393 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.050207e-02 seconds
+2018-03-01 23:24:42,393 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,393 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,433 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.008675e-02 seconds
+2018-03-01 23:24:42,433 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,433 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,473 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 3.952312e-02 seconds
+2018-03-01 23:24:42,473 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,473 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,514 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.125595e-02 seconds
+2018-03-01 23:24:42,514 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,515 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,554 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 3.967786e-02 seconds
+2018-03-01 23:24:42,554 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,555 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,594 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 3.979993e-02 seconds
+2018-03-01 23:24:42,594 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,595 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,635 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.099512e-02 seconds
+2018-03-01 23:24:42,636 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,636 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,676 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.012704e-02 seconds
+2018-03-01 23:24:42,676 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,676 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,717 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.050779e-02 seconds
+2018-03-01 23:24:42,717 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,717 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,757 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 3.988004e-02 seconds
+2018-03-01 23:24:42,757 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,757 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,797 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.016423e-02 seconds
+2018-03-01 23:24:42,797 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,797 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,838 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.101086e-02 seconds
+2018-03-01 23:24:42,838 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,839 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,879 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.073787e-02 seconds
+2018-03-01 23:24:42,879 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,880 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,919 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 3.980994e-02 seconds
+2018-03-01 23:24:42,919 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,920 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:42,961 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.141808e-02 seconds
+2018-03-01 23:24:42,961 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:42,961 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,001 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 3.958297e-02 seconds
+2018-03-01 23:24:43,001 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,001 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,042 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.133701e-02 seconds
+2018-03-01 23:24:43,042 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,043 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,082 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 3.981018e-02 seconds
+2018-03-01 23:24:43,082 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,083 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,123 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.088402e-02 seconds
+2018-03-01 23:24:43,123 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,124 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,239 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 1.156664e-01 seconds
+2018-03-01 23:24:43,239 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,240 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,280 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.053617e-02 seconds
+2018-03-01 23:24:43,280 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,280 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,322 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.155970e-02 seconds
+2018-03-01 23:24:43,322 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,322 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,362 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.050398e-02 seconds
+2018-03-01 23:24:43,363 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,363 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,404 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.125905e-02 seconds
+2018-03-01 23:24:43,404 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,404 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,447 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.287291e-02 seconds
+2018-03-01 23:24:43,447 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,447 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,490 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.298902e-02 seconds
+2018-03-01 23:24:43,490 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,491 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,533 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.231620e-02 seconds
+2018-03-01 23:24:43,533 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,533 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,577 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.397607e-02 seconds
+2018-03-01 23:24:43,577 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,577 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,621 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.339695e-02 seconds
+2018-03-01 23:24:43,621 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,621 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,663 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.200435e-02 seconds
+2018-03-01 23:24:43,663 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,663 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,708 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.443598e-02 seconds
+2018-03-01 23:24:43,708 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,708 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,750 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.237413e-02 seconds
+2018-03-01 23:24:43,750 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,751 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,794 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.359794e-02 seconds
+2018-03-01 23:24:43,794 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,794 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,837 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.313016e-02 seconds
+2018-03-01 23:24:43,838 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,838 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,880 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.258013e-02 seconds
+2018-03-01 23:24:43,880 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,881 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,925 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.493713e-02 seconds
+2018-03-01 23:24:43,926 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,926 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:43,967 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.158473e-02 seconds
+2018-03-01 23:24:43,967 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:43,968 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:44,011 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.328895e-02 seconds
+2018-03-01 23:24:44,011 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:44,011 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:44,055 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.395795e-02 seconds
+2018-03-01 23:24:44,055 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:44,055 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:44,098 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.230309e-02 seconds
+2018-03-01 23:24:44,098 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:44,098 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:44,142 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.385900e-02 seconds
+2018-03-01 23:24:44,142 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:44,142 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:44,185 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.275393e-02 seconds
+2018-03-01 23:24:44,185 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:44,185 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:44,228 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.349494e-02 seconds
+2018-03-01 23:24:44,228 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:44,229 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:44,272 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.351807e-02 seconds
+2018-03-01 23:24:44,272 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:44,272 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:44,316 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.354382e-02 seconds
+2018-03-01 23:24:44,316 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:44,316 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:44,359 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.277301e-02 seconds
+2018-03-01 23:24:44,359 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Starting the function [__init__] ...
+2018-03-01 23:24:44,359 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Generating a new model
+2018-03-01 23:24:44,402 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.__init__ - INFO - Finished the function [__init__] in 4.287887e-02 seconds
+2018-03-01 23:24:44,402 - NNoptExpt.lib.libGA.GA.__init__ - INFO - Finished the function [__init__] in 4.436602e+00 seconds
+2018-03-01 23:24:44,402 - NNoptExpt.lib.libGA.GA.err - INFO - Starting the function [err] ...
+2018-03-01 23:24:44,403 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:24:51,029 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.514162063598633
+2018-03-01 23:24:56,934 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-24-44-403421/2018-03-01--23-24-44-403421.ckpt
+2018-03-01 23:24:56,934 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-24-44-403421]-----------------
+[2018-03-01--23-24-44-403421] [errorVal] Time to start a session     : 0.000503
+[2018-03-01--23-24-44-403421] [errorVal] Time to read a checkpoint   : 3.66
+[2018-03-01--23-24-44-403421] [errorVal] Time to calculate a value   : 0.0326
+[2018-03-01--23-24-44-403421] [errorVal] Time to delete old folder   : 9.54e-07
+[2018-03-01--23-24-44-403421] [errorVal] Time to save new checkpoint : 5.9
+2018-03-01 23:24:56,978 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 1.257470e+01 seconds
+2018-03-01 23:24:56,978 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:25:04,158 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.51397967338562
+2018-03-01 23:25:12,117 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-24-56-978523/2018-03-01--23-24-56-978523.ckpt
+2018-03-01 23:25:12,117 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-24-56-978523]-----------------
+[2018-03-01--23-24-56-978523] [errorVal] Time to start a session     : 8.42e-05
+[2018-03-01--23-24-56-978523] [errorVal] Time to read a checkpoint   : 4.23
+[2018-03-01--23-24-56-978523] [errorVal] Time to calculate a value   : 0.0424
+[2018-03-01--23-24-56-978523] [errorVal] Time to delete old folder   : 9.54e-07
+[2018-03-01--23-24-56-978523] [errorVal] Time to save new checkpoint : 7.96
+2018-03-01 23:25:12,172 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 1.519385e+01 seconds
+2018-03-01 23:25:12,172 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:25:20,726 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.514183282852173
+2018-03-01 23:25:30,586 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-25-12-172719/2018-03-01--23-25-12-172719.ckpt
+2018-03-01 23:25:30,586 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-25-12-172719]-----------------
+[2018-03-01--23-25-12-172719] [errorVal] Time to start a session     : 9.51e-05
+[2018-03-01--23-25-12-172719] [errorVal] Time to read a checkpoint   : 5.63
+[2018-03-01--23-25-12-172719] [errorVal] Time to calculate a value   : 0.0564
+[2018-03-01--23-25-12-172719] [errorVal] Time to delete old folder   : 9.54e-07
+[2018-03-01--23-25-12-172719] [errorVal] Time to save new checkpoint : 9.86
+2018-03-01 23:25:30,651 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 1.847857e+01 seconds
+2018-03-01 23:25:30,651 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:25:40,110 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.513953924179077
+2018-03-01 23:25:52,705 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-25-30-651612/2018-03-01--23-25-30-651612.ckpt
+2018-03-01 23:25:52,705 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-25-30-651612]-----------------
+[2018-03-01--23-25-30-651612] [errorVal] Time to start a session     : 8.82e-05
+[2018-03-01--23-25-30-651612] [errorVal] Time to read a checkpoint   : 6.43
+[2018-03-01--23-25-30-651612] [errorVal] Time to calculate a value   : 0.0709
+[2018-03-01--23-25-30-651612] [errorVal] Time to delete old folder   : 9.54e-07
+[2018-03-01--23-25-30-651612] [errorVal] Time to save new checkpoint : 12.6
+2018-03-01 23:25:52,780 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 2.212901e+01 seconds
+2018-03-01 23:25:52,780 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:26:03,658 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.5142271518707275
+2018-03-01 23:26:18,678 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-25-52-780964/2018-03-01--23-25-52-780964.ckpt
+2018-03-01 23:26:18,678 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-25-52-780964]-----------------
+[2018-03-01--23-25-52-780964] [errorVal] Time to start a session     : 8.61e-05
+[2018-03-01--23-25-52-780964] [errorVal] Time to read a checkpoint   : 7.89
+[2018-03-01--23-25-52-780964] [errorVal] Time to calculate a value   : 0.0762
+[2018-03-01--23-25-52-780964] [errorVal] Time to delete old folder   : 1.19e-06
+[2018-03-01--23-25-52-780964] [errorVal] Time to save new checkpoint : 15.0
+2018-03-01 23:26:18,782 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 2.600143e+01 seconds
+2018-03-01 23:26:18,782 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:26:34,717 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.5143234729766846
+2018-03-01 23:26:51,501 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-26-18-782720/2018-03-01--23-26-18-782720.ckpt
+2018-03-01 23:26:51,501 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-26-18-782720]-----------------
+[2018-03-01--23-26-18-782720] [errorVal] Time to start a session     : 8.68e-05
+[2018-03-01--23-26-18-782720] [errorVal] Time to read a checkpoint   : 11.6
+[2018-03-01--23-26-18-782720] [errorVal] Time to calculate a value   : 0.0943
+[2018-03-01--23-26-18-782720] [errorVal] Time to delete old folder   : 7.15e-07
+[2018-03-01--23-26-18-782720] [errorVal] Time to save new checkpoint : 16.8
+2018-03-01 23:26:51,604 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 3.282158e+01 seconds
+2018-03-01 23:26:51,604 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:27:04,092 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.5142359733581543
+2018-03-01 23:27:23,388 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-26-51-604614/2018-03-01--23-26-51-604614.ckpt
+2018-03-01 23:27:23,388 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-26-51-604614]-----------------
+[2018-03-01--23-26-51-604614] [errorVal] Time to start a session     : 7.92e-05
+[2018-03-01--23-26-51-604614] [errorVal] Time to read a checkpoint   : 9.62
+[2018-03-01--23-26-51-604614] [errorVal] Time to calculate a value   : 0.103
+[2018-03-01--23-26-51-604614] [errorVal] Time to delete old folder   : 1.19e-06
+[2018-03-01--23-26-51-604614] [errorVal] Time to save new checkpoint : 19.3
+2018-03-01 23:27:23,516 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 3.191225e+01 seconds
+2018-03-01 23:27:23,517 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:27:37,486 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.5142722129821777
+2018-03-01 23:27:58,190 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-27-23-517198/2018-03-01--23-27-23-517198.ckpt
+2018-03-01 23:27:58,191 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-27-23-517198]-----------------
+[2018-03-01--23-27-23-517198] [errorVal] Time to start a session     : 8.39e-05
+[2018-03-01--23-27-23-517198] [errorVal] Time to read a checkpoint   : 11.0
+[2018-03-01--23-27-23-517198] [errorVal] Time to calculate a value   : 0.116
+[2018-03-01--23-27-23-517198] [errorVal] Time to delete old folder   : 1.19e-06
+[2018-03-01--23-27-23-517198] [errorVal] Time to save new checkpoint : 20.7
+2018-03-01 23:27:58,325 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 3.480801e+01 seconds
+2018-03-01 23:27:58,325 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:28:13,440 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.5142717361450195
+2018-03-01 23:28:37,137 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-27-58-325580/2018-03-01--23-27-58-325580.ckpt
+2018-03-01 23:28:37,138 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-27-58-325580]-----------------
+[2018-03-01--23-27-58-325580] [errorVal] Time to start a session     : 8.11e-05
+[2018-03-01--23-27-58-325580] [errorVal] Time to read a checkpoint   : 11.7
+[2018-03-01--23-27-58-325580] [errorVal] Time to calculate a value   : 0.13
+[2018-03-01--23-27-58-325580] [errorVal] Time to delete old folder   : 1.19e-06
+[2018-03-01--23-27-58-325580] [errorVal] Time to save new checkpoint : 23.7
+2018-03-01 23:28:37,284 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 3.895859e+01 seconds
+2018-03-01 23:28:37,284 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:28:53,995 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.5143322944641113
+2018-03-01 23:29:18,903 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-28-37-284507/2018-03-01--23-28-37-284507.ckpt
+2018-03-01 23:29:18,903 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-28-37-284507]-----------------
+[2018-03-01--23-28-37-284507] [errorVal] Time to start a session     : 8.01e-05
+[2018-03-01--23-28-37-284507] [errorVal] Time to read a checkpoint   : 13.4
+[2018-03-01--23-28-37-284507] [errorVal] Time to calculate a value   : 0.144
+[2018-03-01--23-28-37-284507] [errorVal] Time to delete old folder   : 1.19e-06
+[2018-03-01--23-28-37-284507] [errorVal] Time to save new checkpoint : 24.9
+2018-03-01 23:29:19,069 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 4.178504e+01 seconds
+2018-03-01 23:29:19,069 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:29:38,465 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.514200210571289
+2018-03-01 23:30:06,208 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-29-19-069883/2018-03-01--23-29-19-069883.ckpt
+2018-03-01 23:30:06,208 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-29-19-069883]-----------------
+[2018-03-01--23-29-19-069883] [errorVal] Time to start a session     : 9.2e-05
+[2018-03-01--23-29-19-069883] [errorVal] Time to read a checkpoint   : 15.8
+[2018-03-01--23-29-19-069883] [errorVal] Time to calculate a value   : 0.175
+[2018-03-01--23-29-19-069883] [errorVal] Time to delete old folder   : 1.19e-06
+[2018-03-01--23-29-19-069883] [errorVal] Time to save new checkpoint : 27.7
+2018-03-01 23:30:06,377 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 4.730799e+01 seconds
+2018-03-01 23:30:06,378 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:30:24,467 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.514000654220581
+2018-03-01 23:30:54,874 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-30-06-378222/2018-03-01--23-30-06-378222.ckpt
+2018-03-01 23:30:54,875 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-30-06-378222]-----------------
+[2018-03-01--23-30-06-378222] [errorVal] Time to start a session     : 9.89e-05
+[2018-03-01--23-30-06-378222] [errorVal] Time to read a checkpoint   : 15.0
+[2018-03-01--23-30-06-378222] [errorVal] Time to calculate a value   : 0.181
+[2018-03-01--23-30-06-378222] [errorVal] Time to delete old folder   : 9.54e-07
+[2018-03-01--23-30-06-378222] [errorVal] Time to save new checkpoint : 30.4
+2018-03-01 23:30:55,060 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 4.868204e+01 seconds
+2018-03-01 23:30:55,060 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:31:14,690 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.5141756534576416
+2018-03-01 23:31:48,039 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-30-55-060580/2018-03-01--23-30-55-060580.ckpt
+2018-03-01 23:31:48,039 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-30-55-060580]-----------------
+[2018-03-01--23-30-55-060580] [errorVal] Time to start a session     : 9.3e-05
+[2018-03-01--23-30-55-060580] [errorVal] Time to read a checkpoint   : 16.1
+[2018-03-01--23-30-55-060580] [errorVal] Time to calculate a value   : 0.177
+[2018-03-01--23-30-55-060580] [errorVal] Time to delete old folder   : 7.15e-07
+[2018-03-01--23-30-55-060580] [errorVal] Time to save new checkpoint : 33.3
+2018-03-01 23:31:48,235 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 5.317440e+01 seconds
+2018-03-01 23:31:48,235 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:32:08,614 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.5142717361450195
+2018-03-01 23:32:42,274 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-31-48-235360/2018-03-01--23-31-48-235360.ckpt
+2018-03-01 23:32:42,274 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-31-48-235360]-----------------
+[2018-03-01--23-31-48-235360] [errorVal] Time to start a session     : 0.000103
+[2018-03-01--23-31-48-235360] [errorVal] Time to read a checkpoint   : 17.2
+[2018-03-01--23-31-48-235360] [errorVal] Time to calculate a value   : 0.18
+[2018-03-01--23-31-48-235360] [errorVal] Time to delete old folder   : 0.0
+[2018-03-01--23-31-48-235360] [errorVal] Time to save new checkpoint : 33.7
+2018-03-01 23:32:42,496 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 5.426086e+01 seconds
+2018-03-01 23:32:42,496 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:33:04,655 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.5142927169799805
+2018-03-01 23:33:41,798 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-32-42-496543/2018-03-01--23-32-42-496543.ckpt
+2018-03-01 23:33:41,798 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-32-42-496543]-----------------
+[2018-03-01--23-32-42-496543] [errorVal] Time to start a session     : 8.39e-05
+[2018-03-01--23-32-42-496543] [errorVal] Time to read a checkpoint   : 18.5
+[2018-03-01--23-32-42-496543] [errorVal] Time to calculate a value   : 0.202
+[2018-03-01--23-32-42-496543] [errorVal] Time to delete old folder   : 9.54e-07
+[2018-03-01--23-32-42-496543] [errorVal] Time to save new checkpoint : 37.1
+2018-03-01 23:33:42,013 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 5.951707e+01 seconds
+2018-03-01 23:33:42,013 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:34:03,408 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.514256000518799
+2018-03-01 23:34:40,960 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-33-42-013941/2018-03-01--23-33-42-013941.ckpt
+2018-03-01 23:34:40,960 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-33-42-013941]-----------------
+[2018-03-01--23-33-42-013941] [errorVal] Time to start a session     : 8.92e-05
+[2018-03-01--23-33-42-013941] [errorVal] Time to read a checkpoint   : 18.4
+[2018-03-01--23-33-42-013941] [errorVal] Time to calculate a value   : 0.219
+[2018-03-01--23-33-42-013941] [errorVal] Time to delete old folder   : 9.54e-07
+[2018-03-01--23-33-42-013941] [errorVal] Time to save new checkpoint : 37.6
+2018-03-01 23:34:41,177 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 5.916320e+01 seconds
+2018-03-01 23:34:41,177 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:35:06,091 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.5143258571624756
+2018-03-01 23:35:47,155 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-34-41-177461/2018-03-01--23-34-41-177461.ckpt
+2018-03-01 23:35:47,155 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-34-41-177461]-----------------
+[2018-03-01--23-34-41-177461] [errorVal] Time to start a session     : 8.61e-05
+[2018-03-01--23-34-41-177461] [errorVal] Time to read a checkpoint   : 20.7
+[2018-03-01--23-34-41-177461] [errorVal] Time to calculate a value   : 0.225
+[2018-03-01--23-34-41-177461] [errorVal] Time to delete old folder   : 1.19e-06
+[2018-03-01--23-34-41-177461] [errorVal] Time to save new checkpoint : 41.1
+2018-03-01 23:35:47,387 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 6.620959e+01 seconds
+2018-03-01 23:35:47,387 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:36:10,800 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.5141634941101074
+2018-03-01 23:36:54,205 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-35-47-387369/2018-03-01--23-35-47-387369.ckpt
+2018-03-01 23:36:54,205 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-35-47-387369]-----------------
+[2018-03-01--23-35-47-387369] [errorVal] Time to start a session     : 8.82e-05
+[2018-03-01--23-35-47-387369] [errorVal] Time to read a checkpoint   : 20.3
+[2018-03-01--23-35-47-387369] [errorVal] Time to calculate a value   : 0.239
+[2018-03-01--23-35-47-387369] [errorVal] Time to delete old folder   : 2.15e-06
+[2018-03-01--23-35-47-387369] [errorVal] Time to save new checkpoint : 43.4
+2018-03-01 23:36:54,452 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 6.706504e+01 seconds
+2018-03-01 23:36:54,452 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:37:19,836 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.5141148567199707
+2018-03-01 23:38:04,081 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-36-54-452731/2018-03-01--23-36-54-452731.ckpt
+2018-03-01 23:38:04,081 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-36-54-452731]-----------------
+[2018-03-01--23-36-54-452731] [errorVal] Time to start a session     : 9.7e-05
+[2018-03-01--23-36-54-452731] [errorVal] Time to read a checkpoint   : 22.4
+[2018-03-01--23-36-54-452731] [errorVal] Time to calculate a value   : 0.239
+[2018-03-01--23-36-54-452731] [errorVal] Time to delete old folder   : 9.54e-07
+[2018-03-01--23-36-54-452731] [errorVal] Time to save new checkpoint : 44.2
+2018-03-01 23:38:04,346 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 6.989345e+01 seconds
+2018-03-01 23:38:04,346 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:38:31,624 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.514317750930786
+2018-03-01 23:39:19,634 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-38-04-346572/2018-03-01--23-38-04-346572.ckpt
+2018-03-01 23:39:19,634 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-38-04-346572]-----------------
+[2018-03-01--23-38-04-346572] [errorVal] Time to start a session     : 7.99e-05
+[2018-03-01--23-38-04-346572] [errorVal] Time to read a checkpoint   : 23.6
+[2018-03-01--23-38-04-346572] [errorVal] Time to calculate a value   : 0.275
+[2018-03-01--23-38-04-346572] [errorVal] Time to delete old folder   : 9.54e-07
+[2018-03-01--23-38-04-346572] [errorVal] Time to save new checkpoint : 48.0
+2018-03-01 23:39:19,911 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 7.556450e+01 seconds
+2018-03-01 23:39:19,911 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
+2018-03-01 23:39:46,894 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Calculated errVal: 3.514193534851074
+2018-03-01 23:40:37,037 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Checkpoint saved at : ../data/checkpoints/2018-03-01--23-39-19-911390/2018-03-01--23-39-19-911390.ckpt
+2018-03-01 23:40:37,037 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - --------------------[2018-03-01--23-39-19-911390]-----------------
+[2018-03-01--23-39-19-911390] [errorVal] Time to start a session     : 8.68e-05
+[2018-03-01--23-39-19-911390] [errorVal] Time to read a checkpoint   : 23.7
+[2018-03-01--23-39-19-911390] [errorVal] Time to calculate a value   : 0.28
+[2018-03-01--23-39-19-911390] [errorVal] Time to delete old folder   : 9.54e-07
+[2018-03-01--23-39-19-911390] [errorVal] Time to save new checkpoint : 50.1
+2018-03-01 23:40:37,383 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Finished the function [errorVal] in 7.747183e+01 seconds
+2018-03-01 23:40:37,384 - NNoptExpt.lib.NNlib.NNmodel.NNmodel.predict - INFO - Starting the function [errorVal] ...
