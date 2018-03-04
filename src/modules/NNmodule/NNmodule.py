@@ -10,9 +10,9 @@ import matplotlib.pyplot as plt
 config = json.load(open('../config/config.json'))
 logBase = config['logging']['logBase'] + '.modules.NNmodule.NNmodule'
 
-@lD.log(logBase + '.runModel')
-def runModel(logger):
-    '''print a line
+@lD.log(logBase + '.checkNNmodel')
+def checkNNmodel(logger):
+    '''Check whether the NNmodel us working find
     
     This function simply prints a single line
     
@@ -54,6 +54,44 @@ def runModel(logger):
 
     return
 
+@lD.log(logBase + '.checkNNmodel1')
+def checkNNmodel1(logger):
+    '''Check whether the NNmodel is working find
+    
+    [description]
+
+    Parameters
+    ----------
+    logger : {logging.Logger}
+        The logger function
+    '''
+
+    X = np.random.rand(2, 10000)
+    y = (  2*np.sin(X[0, :]) + 3*np.cos(X[1, :]) ).reshape(1, -1)
+    # y = (  2*X[0, :] + 3*X[1, :] ).reshape(1, -1)
+
+    print('We are in the NNmodule')
+    inpSize     = (2, None)
+    opSize      = (1, None)
+    layers      = (5, 8, 1)
+    activations = [tf.tanh, tf.tanh, None]
+    model1      = NNmodel.NNmodel1(inpSize, opSize, layers, activations)
+    model2      = NNmodel.NNmodel1(inpSize, opSize, layers, activations)
+
+    # Fitting the model.
+    print('Fitting the model here ...')
+    weights = model1.fitAdam(X, y, N=10000)
+
+    print('Finding the error values for the calculated weights ...')
+    errVal = model1.errorValW(X, y, weights)
+    print('Calculated ErrorVal = {}'.format(errVal))
+
+    print('Transferring weights to model2 ...')
+    errVal = model2.errorValW(X, y, weights)
+    print('Calculated ErrorVal = {}'.format(errVal))
+
+    return
+
 @lD.log(logBase + '.main')
 def main(logger):
     '''main function for module1
@@ -68,7 +106,8 @@ def main(logger):
         The logger function
     '''
 
-    runModel()
+    # checkNNmodel1()
+    checkNNmodel1()
 
     return
 

@@ -383,3 +383,247 @@ class NNmodel():
 
         return errVal
 
+class NNmodel1():
+    '''[summary]
+    
+    [description]
+    '''
+
+    @lD.log(logBase + '.NNmodel.__init__')
+    def __init__(logger, self, inpSize, opSize, layers, activations):
+        '''generate a model that will be used for optimization.
+        
+        Similar to the previous function, except that it totally does away
+        with saving the state at any time. This will significantly save 
+        on the time required to save the state and will speed things up. 
+        
+        Decorators:
+            lD.log
+        
+        Arguments:
+            logger {logging.Logger} -- Inserted by the decorator
+            self {instance of class} -- inserted by the class
+            inpSize {[type]} -- [description]
+            layers {[type]} -- [description]
+            activations {[type]} -- [description]
+        '''
+
+        self.modelOK = False
+        self.checkPoint = None
+        self.optimizer = None
+
+        self.fitted = False
+        self.currentErrors = None
+
+        try:
+
+            self.NNmodelConfig = json.load(open('../config/NNmodelConfig.json'))
+
+            logger.info('Generating a new model')
+            self.inpSize = inpSize
+            self.Inp     = tf.placeholder(dtype=tf.float32, shape=inpSize, name='Inp')
+            self.Op      = tf.placeholder(dtype=tf.float32, shape=opSize, name='Op')
+            
+            self.allW    = []
+            self.allB    = []
+
+            self.result  = None
+
+            prevSize = inpSize[0]
+            for i, l in enumerate(layers):
+                tempW = tf.Variable( 0.1*(np.random.rand(l, prevSize) - 0.5), dtype=tf.float32, name='W_{}'.format(i) )
+                tempB = tf.Variable( 0, dtype=tf.float32, name='B_{}'.format(i) )
+
+                self.allW.append( tempW )
+                self.allB.append( tempB )
+
+                if i == 0:
+                    self.result = tf.matmul( tempW, self.Inp ) + tempB
+                else:
+                    self.result = tf.matmul( tempW, self.result ) + tempB
+
+                prevSize = l
+
+                if activations[i] is not None:
+                    self.result = activations[i]( self.result )
+
+            self.err = tf.sqrt(tf.reduce_mean((self.Op - self.result)**2))
+            self.modelOK = True
+
+        except Exception as e:
+            logger.error('Unable to geberate the required model: {}'.format(str(e)))
+
+
+        return
+
+    @lD.log(logBase + '.NNmodel.fitAdam')
+    def fitAdam(logger, self, X, y, N = 1000, **params):
+        '''[summary]
+        
+        [description]
+        
+        Decorators:
+            lD.log
+        
+        Arguments:
+            logger {[type]} -- [description]
+            self {[type]} -- [description]
+            X {[type]} -- [description]
+            y {[type]} -- [description]
+            **params {[type]} -- [description]
+        
+        Keyword Arguments:
+            N {number} -- [description] (default: {1000})
+        '''
+
+        weights = None
+
+        if not self.modelOK:
+            logger.error('The model is not generated properly. The optimizer will not be evaluated.')
+            return
+
+        try:
+
+
+            if self.optimizer is None:
+                logger.info('Generating a new optimizer ...')
+                self.optimizer = tf.train.AdamOptimizer(name = 'opt', **params).minimize( self.err )
+
+            with tf.Session() as sess:
+                sess.run(tf.global_variables_initializer())
+
+                logger.info('Optimization in progress ...')
+                if self.currentErrors is None:
+                    self.currentErrors = []
+
+                for i in range(N):
+                    _, err = sess.run([self.optimizer, self.err ], feed_dict={
+                            self.Inp: X, self.Op: y
+                        })
+                    self.currentErrors.append(err)
+
+                    if i %100 == 0:
+                        print(i, err)
+
+                    logger.info('Optimization error at iteration {} = {}.'.format(i, err))
+
+                print('Final error: {}'.format(err))
+
+                weights = sess.run(self.allW + self.allB)
+                    
+        except Exception as e:
+            logger.error('Unable to optimize the model given the data: {}'.format(str(e)))
+
+        return weights
+
+    @lD.log( logBase + '.NNmodel.getWeights' )
+    def getWeights(logger, self):
+        '''[summary]
+        
+        [description]
+        
+        Decorators:
+            lD.log
+        
+        Arguments:
+            logger {[type]} -- [description]
+            self {[type]} -- [description]
+        
+        Returns:
+            [type] -- [description]
+        '''
+
+        weights = None
+
+        if not self.modelOK:
+            logger.error('The model is not generated properly. The optimizer will not be evaluated.')
+            return
+
+        try:
+            with tf.Session() as sess:
+                sess.run(tf.global_variables_initializer())
+
+                weights = sess.run(self.allW + self.allB)
+                return weights
+
+        except Exception as e:
+            logger.error('Unable to get the weights: {}'.format(str(e)))
+
+        return weights
+
+    @lD.log( logBase + '.NNmodel.setWeights' )
+    def setWeights(logger, self, weights, sess):
+        '''set weights for a sesstion
+        
+        [description]
+        
+        Decorators:
+            lD.log
+        
+        Arguments:
+            logger {[type]} -- [description]
+            self {[type]} -- [description]
+            weights {[type]} -- [description]
+            sess {[type]} -- [description]
+        '''
+
+        try:
+            nW = len(self.allW)
+            W = weights[:nW]
+            B = weights[nW:]
+
+            for i in range(len(W)):
+                sess.run(tf.assign( self.allW[i], W[i] ))
+
+            for i in range(len(B)):
+                sess.run(tf.assign( self.allB[i], B[i] ))
+
+        except Exception as e:
+            logger.error('Problem with setting weights to new values ...: {}'.format(str(e)))
+
+        return
+
+    @lD.log( logBase + '.NNmodel.errorValW' )
+    def errorValW(logger, self, X, y, weights):
+
+        errVal = None
+
+        try:
+            
+            with tf.Session() as sess:
+                sess.run(tf.global_variables_initializer())
+
+                self.setWeights(weights, sess)
+
+                errVal = sess.run(self.err, feed_dict = {self.Inp: X, self.Op: y})
+                logger.info('Calculated errVal: {}'.format( errVal ))
+
+        except Exception as e:
+            logger.error( 'Unable to make a prediction: {}'.format(str(e)) )
+
+        return errVal
+
+    @lD.log( logBase + '.NNmodel.errorValWs' )
+    def errorValWs(logger, self, X, y, weightsList):
+
+        errVals = []
+
+        try:
+            
+            with tf.Session() as sess:
+                sess.run(tf.global_variables_initializer())
+
+                for weights in weightsList:
+
+                    self.setWeights(weights, sess)
+
+                    errVal = sess.run(self.err, feed_dict = {self.Inp: X, self.Op: y})
+                    logger.info('Calculated errVal: {}'.format( errVal ))
+
+                    errVals.append( errVals )
+
+        except Exception as e:
+            logger.error( 'Unable to make a prediction: {}'.format(str(e)) )
+
+        return errVal
+
