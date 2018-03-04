@@ -1,3 +1,16 @@
+Version 1.0
+
+Done:
+1. library modules:
+    1.1. libGA --> generate a GA Class
+    1.2. NNmodel --> generate a NNmodel
+
+ToDo:
+1. Redo the libGA model to use a vector of weights rather
+   than a vector of NNmodels. This is because the tensorflow
+   models are really difficult to save. 
+
+---------------------------
 Version 0.0
 
 1. the very basic interface. Nothing added as yet
