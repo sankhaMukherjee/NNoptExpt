@@ -1,0 +1,12 @@
+{
+    "numChildren": 100,
+    "elitism":{
+        "toDo": true,
+        "numElite": 3
+    },
+    "mutation":{
+        "toDo":true,
+        "multiplier":0.1
+    }
+
+}

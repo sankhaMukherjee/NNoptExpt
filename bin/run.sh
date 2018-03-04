@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 # --- First, run the program
-python3 NNoptExpt.py
+python3 NNoptExpt.py #2>/dev/null
 
 # --- Check to see if there was an error
 logFile=$(ls logs/*.log | sort | tail -n1)
