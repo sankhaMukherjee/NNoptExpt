@@ -90,6 +90,12 @@ def checkNNmodel1(logger):
     errVal = model2.errorValW(X, y, weights)
     print('Calculated ErrorVal = {}'.format(errVal))
 
+    weightsList = [ weights ] * 100
+
+    print('Transferring weights to model2 ...')
+    errVals = model2.errorValWs(X, y, weightsList)
+    print('Calculated ErrorVal = {}'.format(errVals))
+
     return
 
 @lD.log(logBase + '.main')

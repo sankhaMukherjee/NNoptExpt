@@ -34,7 +34,7 @@ def runModel(logger):
     }
 
     print('Generating the GA model ...')    
-    initClass = GAlib.GA( NNmodel.NNmodel, initParams)
+    initClass = GAlib.GA1( NNmodel.NNmodel1, initParams)
 
     # print('Generating the predictions')
     # yHats = initClass.predict(X)

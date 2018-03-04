@@ -1,5 +1,6 @@
 from logs     import logDecorator as lD
 from time     import time
+from tqdm     import tqdm
 from datetime import datetime as dt
 
 import json, os, shutil
@@ -613,17 +614,17 @@ class NNmodel1():
             with tf.Session() as sess:
                 sess.run(tf.global_variables_initializer())
 
-                for weights in weightsList:
+                for weights in tqdm(weightsList):
 
                     self.setWeights(weights, sess)
 
                     errVal = sess.run(self.err, feed_dict = {self.Inp: X, self.Op: y})
                     logger.info('Calculated errVal: {}'.format( errVal ))
 
-                    errVals.append( errVals )
+                    errVals.append( errVal )
 
         except Exception as e:
             logger.error( 'Unable to make a prediction: {}'.format(str(e)) )
 
-        return errVal
+        return errVals
 
