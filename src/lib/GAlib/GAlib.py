@@ -337,7 +337,7 @@ class GA1():
             self.population   = []
             temp = nnClass(**initParams).getWeights()
             for i in tqdm(range(self.GAconfig['numChildren'])):
-                self.population.append( [ t*( 1 + 0.1*(np.random.rand()-0.5) ) for t in temp] )
+                self.population.append( [ t + self.GAconfig['initMultiplier']*(np.random.rand()-0.5)  for t in temp] )
             
             self.tempN        = nnClass(**initParams) # Use this for temp storage
             self.properConfig = True

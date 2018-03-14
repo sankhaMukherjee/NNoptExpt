@@ -23,8 +23,8 @@ def runModel(logger):
     '''
 
     X = np.random.rand(2, 10000)
-    y = (  2*np.sin(X[0, :]) + 3*np.cos(X[1, :]) ).reshape(1, -1)
-    # y = (  2*X[0, :] + 3*X[1, :] ).reshape(1, -1)
+    # y = (  2*np.sin(X[0, :]) + 3*np.cos(X[1, :]) ).reshape(1, -1)
+    y = (  2*X[0, :] + 3*X[1, :] ).reshape(1, -1)
 
     initParams = {
         "inpSize"      : (2, None), 

@@ -1,4 +1,5 @@
 {
+    "initMultiplier": 10,
     "numChildren": 100,
     "elitism":{
         "toDo": true,
