@@ -34,7 +34,7 @@ def runModel(logger):
     }
 
     print('Generating the GA model ...')    
-    initClass = GAlib.GA1( NNmodel.NNmodel1, initParams)
+    initClass = GAlib.GA1( NNmodel.NNmodel2, initParams)
 
     # print('Generating the predictions')
     # yHats = initClass.predict(X)
@@ -56,12 +56,12 @@ def runModel(logger):
     print('Before crossover ...')
     initClass.printErrors()
 
-    for i in range( 30 ):
-        print('Performing crossover ...')
-        initClass.crossover(X, y)
+    # for i in range( 2 ):
+    #     print('Performing crossover ...')
+    #     initClass.crossover(X, y)
 
-        print('After crossover ...')
-        initClass.printErrors()
+    #     print('After crossover ...')
+    #     initClass.printErrors()
 
     # for p in initClass.population:
     #     weights = p.getWeights()
