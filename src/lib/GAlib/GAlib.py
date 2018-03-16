@@ -550,4 +550,15 @@ class GA2():
         self.properConfig = False
         self.currentErr   = None
 
+        try:
+            self.population   = []
+            temp = nnClass(**initParams).getWeights()
+            for i in tqdm(range(self.GAconfig['numChildren'])):
+                self.population.append( [ t + self.GAconfig['initMultiplier']*(np.random.rand()-0.5)  for t in temp] )
+            
+            self.tempN        = nnClass(**initParams) # Use this for temp storage
+            self.properConfig = True
+        except Exception as e:
+            logger.error('Unable to generate the GA class properly: {}'.format(str(e)))
+
         return
