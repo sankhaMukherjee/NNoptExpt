@@ -1051,3 +1051,44 @@ class NNmodel3():
 
         return
 
+    @lD.log( logBase + '.NNmodel3.errorValW' )
+    def errorValW(logger, self, X, y, weights):
+
+        errVal = None
+
+        try:
+            
+            with tf.Session() as sess:
+                sess.run(self.init)
+                self.setWeights(weights, sess)
+
+                errVal = sess.run(self.err, feed_dict = {self.Inp: X, self.Op: y})
+                logger.info('Calculated errVal: {}'.format( errVal ))
+
+        except Exception as e:
+            logger.error( 'Unable to make a prediction: {}'.format(str(e)) )
+
+        return errVal
+
+    @lD.log( logBase + '.NNmodel3.errorValWs' )
+    def errorValWs(logger, self, X, y, weightsList):
+
+        errVals = []
+
+        try:
+            
+            with tf.Session() as sess:
+                sess.run(self.init)
+
+                for weights in weightsList:
+                    self.setWeights(weights, sess)
+                    errVal = sess.run(self.err, feed_dict = {self.Inp: X, self.Op: y})
+                    errVals.append(errVal)
+
+                    logger.info('Calculated errVal: {}'.format( errVal ))
+
+        except Exception as e:
+            logger.error( 'Unable to make a prediction: {}'.format(str(e)) )
+
+        return errVals
+

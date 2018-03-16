@@ -9,14 +9,14 @@
     {
         "moduleName" : "NNmodule",
         "path"       : "modules/NNmodule/NNmodule.py",
-        "execute"    : true ,
+        "execute"    : false ,
         "description": "A module for testing the basic NN module",
         "owner"      : "Sankha S. Mukherjee"
     },
     {
         "moduleName" : "GAmodule",
         "path"       : "modules/GAmodule/GAmodule.py",
-        "execute"    : false ,
+        "execute"    : true ,
         "description": "A module for testing the basic GA module",
         "owner"      : "Sankha S. Mukherjee"
     }
