@@ -526,3 +526,28 @@ class GA1():
             logger.error('Unable to do crossover: {}'.format(str(e)))
 
         return
+
+class GA2():
+
+    @lD.log(logBase + '.__init__')
+    def __init__(logger, self, nnClass, initParams):
+        '''[summary]
+        
+        [description]
+        
+        Parameters
+        ----------
+        logger : {[type]}
+            [description]
+        self : {[type]}
+            [description]
+        nnClass : {[type]}
+            [description]
+        initParams : {[type]}
+            [description]
+        '''
+
+        self.properConfig = False
+        self.currentErr   = None
+
+        return
