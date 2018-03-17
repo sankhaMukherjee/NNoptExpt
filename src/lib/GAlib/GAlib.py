@@ -551,6 +551,9 @@ class GA2():
         self.currentErr   = None
 
         try:
+
+            self.GAconfig     = json.load( open('../config/GAconfig.json') )
+
             self.population   = []
             temp = nnClass(**initParams).getWeights()
             for i in tqdm(range(self.GAconfig['numChildren'])):

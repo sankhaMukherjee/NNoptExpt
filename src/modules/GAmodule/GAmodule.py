@@ -72,6 +72,44 @@ def runModel(logger):
 
     return
 
+@lD.log(logBase + '.runModel3')
+def runModel3(logger):
+    '''[summary]
+    
+    [description]
+    
+    Decorators:
+        lD.log
+    
+    Arguments:
+        logger {[type]} -- [description]
+    '''
+
+    X = np.random.rand(2, 10000)
+    # y = (  2*np.sin(X[0, :]) + 3*np.cos(X[1, :]) ).reshape(1, -1)
+    y = (  2*X[0, :] + 3*X[1, :] ).reshape(1, -1)
+
+    initParams = {
+        "inpSize"      : (2, None), 
+        "opSize"       : (1, None), 
+        "layers"       : (5, 8, 1), 
+        "activations"  : [tf.tanh, tf.tanh, None],
+    }
+
+    print('Generating the GA model ...')    
+    ga = GAlib.GA2( NNmodel.NNmodel3, initParams)
+    pop = ga.population
+
+    with tf.Session() as sess:
+        sess.run(ga.init)
+        for weights in pop:
+            errVal = ga.tempN.setWeights(X, y, weights)
+
+
+    return
+
+
+
 
 @lD.log(logBase + '.main')
 def main(logger):
@@ -87,7 +125,8 @@ def main(logger):
         The logger function
     '''
 
-    runModel()
+    # runModel()
+    runModel3()
 
     return
 
