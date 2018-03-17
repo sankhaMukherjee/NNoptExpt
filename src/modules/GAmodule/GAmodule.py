@@ -86,8 +86,8 @@ def runModel3(logger):
     '''
 
     X = np.random.rand(2, 10000)
-    # y = (  2*np.sin(X[0, :]) + 3*np.cos(X[1, :]) ).reshape(1, -1)
-    y = (  2*X[0, :] + 3*X[1, :] ).reshape(1, -1)
+    y = (  2*np.sin(X[0, :]) + 3*np.cos(X[1, :]) ).reshape(1, -1)
+    # y = (  2*X[0, :] + 3*X[1, :] ).reshape(1, -1)
 
     initParams = {
         "inpSize"      : (2, None), 
@@ -96,15 +96,17 @@ def runModel3(logger):
         "activations"  : [tf.tanh, tf.tanh, None],
     }
 
-    print('Generating the GA model ...')    
-    ga = GAlib.GA2( NNmodel.NNmodel3, initParams)
-    pop = ga.population
 
-    with tf.Session() as sess:
-        sess.run(ga.init)
-        for weights in pop:
-            errVal = ga.tempN.setWeights(X, y, weights)
+    if True:
+        print('Generating the GA model ...')    
+        ga = GAlib.GA2( NNmodel.NNmodel3, initParams )
 
+        ga.err(X, y)
+
+        for i in range(50):
+            ga.mutate()
+            ga.crossover(X, y)
+            ga.printErrors()
 
     return
 
