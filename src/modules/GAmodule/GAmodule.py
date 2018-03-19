@@ -99,7 +99,6 @@ def runModel3(logger):
         "activations"  : [tf.tanh, tf.tanh, None],
     }
 
-
     if True:
         print('Generating the GA model ...')    
         ga = GAlib.GA2( NNmodel.NNmodel3, initParams )
