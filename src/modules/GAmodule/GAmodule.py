@@ -35,7 +35,7 @@ def runModel(logger):
 
     if True:
         print('Generating the GA model ...')    
-        ga = GAlib.GA( NNmodel.NNmodel3, initParams )
+        ga = GAlib.GA( NNmodel.NNmodel, initParams )
 
         ga.err(X, y)
 
