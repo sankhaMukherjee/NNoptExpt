@@ -9,71 +9,8 @@ from lib.GAlib import GAlib
 config = json.load(open('../config/config.json'))
 logBase = config['logging']['logBase'] + '.modules.GAmodule.GAmodule'
 
-@lD.log(logBase + '.runModel')
-def runModel(logger):
-    '''[summary]
-    
-    [description]
-    
-    Decorators:
-        lD.log
-    
-    Arguments:
-        logger {[type]} -- [description]
-    '''
-
-    X = np.random.rand(2, 10000)
-    # y = (  2*np.sin(X[0, :]) + 3*np.cos(X[1, :]) ).reshape(1, -1)
-    y = (  2*X[0, :] + 3*X[1, :] ).reshape(1, -1)
-
-    initParams = {
-        "inpSize"      : (2, None), 
-        "opSize"       : (1, None), 
-        "layers"       : (5, 8, 1), 
-        "activations"  : [tf.tanh, tf.tanh, None],
-    }
-
-    print('Generating the GA model ...')    
-    initClass = GAlib.GA1( NNmodel.NNmodel3, initParams)
-
-    # print('Generating the predictions')
-    # yHats = initClass.predict(X)
-    # print(yHats)
-
-    print('Calculating the errors for the current population ...')
-    errors = initClass.err(X, y)
-    for e in errors:
-        print('{}'.format(e))
-
-    print('Doing mutation')
-    initClass.mutate()
-
-    print('Calculating the errors for the current population again ...')
-    errors = initClass.err(X, y)
-    for e in errors:
-        print('{}'.format(e))
-
-    print('Before crossover ...')
-    initClass.printErrors()
-
-    # for i in range( 2 ):
-    #     print('Performing crossover ...')
-    #     initClass.crossover(X, y)
-
-    #     print('After crossover ...')
-    #     initClass.printErrors()
-
-    # for p in initClass.population:
-    #     weights = p.getWeights()
-    #     for w in weights:
-    #         print(w)
-
-    
-
-    return
-
 @lD.log(logBase + '.runModel3')
-def runModel3(logger):
+def runModel(logger):
     '''[summary]
     
     [description]
@@ -96,14 +33,13 @@ def runModel3(logger):
         "activations"  : [tf.tanh, tf.tanh, None],
     }
 
-
     if True:
         print('Generating the GA model ...')    
-        ga = GAlib.GA2( NNmodel.NNmodel3, initParams )
+        ga = GAlib.GA( NNmodel.NNmodel3, initParams )
 
         ga.err(X, y)
 
-        for i in range(50):
+        for i in range(10):
             ga.mutate()
             ga.crossover(X, y)
             ga.printErrors()
@@ -127,8 +63,7 @@ def main(logger):
         The logger function
     '''
 
-    # runModel()
-    runModel3()
+    runModel()
 
     return
 
