@@ -3,6 +3,9 @@ import json
 import numpy      as np
 import tensorflow as tf
 
+import matplotlib.pyplot as plt
+from datetime import datetime as dt
+
 from lib.NNlib import NNmodel
 from lib.GAlib import GAlib
 
@@ -103,10 +106,22 @@ def runModel3(logger):
 
         ga.err(X, y)
 
-        for i in range(50):
+        errors = []
+        errorsM = []
+        for i in range(500):
             ga.mutate()
             ga.crossover(X, y)
             ga.printErrors()
+            errors.append(min(ga.currentErr))
+            errorsM.append(np.mean(ga.currentErr))
+
+
+    plt.plot(errors, label='min')
+    # plt.plot(errorsM, label='mean')
+    plt.yscale('log')
+    plt.legend()
+    plt.savefig( dt.now().strftime('../results/img/%Y-%m-%d--%H-%M-%S_errors.png') )
+    plt.close('all')
 
     return
 
