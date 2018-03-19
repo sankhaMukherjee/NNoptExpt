@@ -192,8 +192,11 @@ class GA():
                 return
 
             sortIndex = np.argsort( self.currentErr )
-            self.population = [ self.population[i]  for i in sortIndex ]
-            self.currentErr = [ self.currentErr[i]  for i in sortIndex ]
+            self.populationOld = [ self.population[i]  for i in sortIndex ]
+            self.population    = [ self.population[i]  for i in sortIndex ]
+            
+            self.currentErrOld = [ self.currentErr[i]  for i in sortIndex ]
+            self.currentErr    = [ self.currentErr[i]  for i in sortIndex ]
             
             normalize = np.array(self.currentErr).copy()
             normalize = normalize / normalize.max()
@@ -216,8 +219,8 @@ class GA():
 
                 # Generate a new error
                 # -------------------------
-                w1 = self.population[c1]
-                w2 = self.population[c2]
+                w1 = self.populationOld[c1]
+                w2 = self.populationOld[c2]
                 wNew = [ a*m + (1-a)*n  for m, n in zip( w1, w2 ) ]
 
                 errVal = self.tempN.errorValW(X, y, wNew)
@@ -226,7 +229,7 @@ class GA():
                 # There is a potential for problem here, but 
                 # we shall neglect it for now. 
                 # ---------------------------------------------
-                if errVal < self.currentErr[i]:
+                if errVal < self.currentErrOld[i]:
                     self.population[i] = wNew
                     self.currentErr[i] = errVal
 
