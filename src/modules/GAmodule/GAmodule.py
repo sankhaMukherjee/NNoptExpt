@@ -23,14 +23,27 @@ def runModel(logger):
     '''
 
     X = np.random.rand(2, 10000)
-    y = (  2*np.sin(X[0, :]) + 3*np.cos(X[1, :]) ).reshape(1, -1)
+    # y = (  2*np.sin(X[0, :]) + 3*np.cos(X[1, :]) ).reshape(1, -1)
     # y = (  2*X[0, :] + 3*X[1, :] ).reshape(1, -1)
+
+    # Lets generate a very nonlinear function ... 
+    # Rastrigin’s function
+    # ----------------------------------------------
+    X = 4*(X - 0.5)
+    y  = (X[0, :]**2 - 10 * np.cos(2 * 3.14 * X[0, :]))
+    y += (X[1, :]**2 - 10 * np.cos(2 * 3.14 * X[1, :]))
+    y += 20
+    y = y.reshape(1, -1)
+    y = y / y.max()
+
+    print(y.max(), y.min())
+
 
     initParams = {
         "inpSize"      : (2, None), 
         "opSize"       : (1, None), 
-        "layers"       : (5, 8, 1), 
-        "activations"  : [tf.tanh, tf.tanh, None],
+        "layers"       : (5, 8, 10, 10, 10, 1), 
+        "activations"  : [tf.tanh, tf.tanh, tf.tanh, tf.tanh, tf.tanh, None],
     }
 
     if True:
