@@ -78,6 +78,37 @@ class GA():
 
         return
 
+    @lD.log(logBase + '.err')
+    def err(logger, self, X, y):
+        '''calculate the errors for the population
+        
+        [description]
+        
+        Decorators:
+            lD.log
+        
+        Arguments:
+            logger {[type]} -- [description]
+            self {[type]} -- [description]
+            X {[type]} -- [description]
+            y {[type]} -- [description]
+        
+        Returns:
+            [type] -- [description]
+        '''
+
+        try:
+            
+            if self.properConfig:
+                self.currentErr = self.tempN.errorValWs(X, y, self.population) 
+            
+            return self.currentErr
+
+        except Exception as e:
+            logger.error('Unable to generate errors for the population: {}'.format(str(e)))
+
+        return
+
     @lD.log( logBase + '.printErrors' )
     def printErrors(logger, self):
         '''[summary]
@@ -103,6 +134,10 @@ class GA():
 
             self.currentErr = np.array(self.currentErr)
             print('[{:}] | [{:}] | [{:}] '.format( self.currentErr.min(), self.currentErr.mean(), self.currentErr.max() ))
+            logger.info('Error info|{}|{}|{}|{}|{}'.format(
+                    np.mean(self.currentErr), np.std(self.currentErr),
+                    np.min(self.currentErr), np.max(self.currentErr), np.median(self.currentErr), 
+                ))
 
 
         except Exception as e:
@@ -195,7 +230,7 @@ class GA():
             normalize = 1 - normalize
             normalize = normalize / normalize.sum()
 
-            choices = np.random.choice( range(len(self.currentErr)), size=(100, 2) , p=normalize )
+            choices = np.random.choice( range(len(self.currentErr)), size=(len(self.population), 2) , p=normalize )
             alphas  = np.random.random( len(self.currentErr) )
 
             for i in range(len(self.population)):
@@ -231,6 +266,30 @@ class GA():
             logger.error('Unable to do crossover: {}'.format(str(e)))
 
         return
+
+    @lD.log( logBase + '.predict' )
+    def predict(logger, self, X):
+        '''[summary]
+        
+        [description]
+        
+        Decorators:
+            lD.log
+        
+        Arguments:
+            logger {[type]} -- [description]
+            self {[type]} -- [description]
+            X {[type]} -- [description]
+        '''
+
+        prediction = None
+
+        try:
+            prediction = self.tempN.predict(X, self.population[0])
+        except Exception as e:
+            logger.error('Unable to make predictions ... : {}'.format( str(e) ))
+
+        return prediction
 
     @lD.log( logBase + '.saveModel' )
     def saveModel(logger, self):
@@ -274,3 +333,5 @@ class GA():
             logger.error('Unable to save the current model: {}'.format(str(e)))
 
         return folder
+
+

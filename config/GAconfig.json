@@ -1,6 +1,6 @@
 {
     "initMultiplier" : 10,
-    "numChildren"    : 100,
+    "numChildren"    : 500,
     "elitism"        : {
         "toDo"     : true,
         "numElite" : 3
