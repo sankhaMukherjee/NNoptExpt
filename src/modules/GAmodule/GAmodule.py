@@ -44,6 +44,9 @@ def runModel(logger):
             ga.crossover(X, y)
             ga.printErrors()
 
+        saveFolder = ga.saveModel()
+        print(saveFolder)
+
     return
 
 

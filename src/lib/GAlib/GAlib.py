@@ -1,8 +1,9 @@
-from logs import logDecorator as lD
-import json
-
+import json, os
 import numpy as np
-from tqdm import tqdm
+
+from tqdm     import tqdm
+from logs     import logDecorator as lD
+from datetime import datetime as dt
 
 config = json.load(open('../config/config.json'))
 logBase = config['logging']['logBase'] + '.lib.libGA.GA'
@@ -43,17 +44,6 @@ class GA():
             self.properConfig = True
         except Exception as e:
             logger.error('Unable to generate the GA class properly: {}'.format(str(e)))
-
-        return
-
-
-    @lD.log(logBase + '.init')
-    def init(logger, self, sess):
-
-        try:
-            sess.run(self.tempN.init)
-        except Exception as e:
-            logger.error('Unable to initialize variables in tempN: {}'.format(str(e)))
 
         return
 
@@ -238,3 +228,46 @@ class GA():
             logger.error('Unable to do crossover: {}'.format(str(e)))
 
         return
+
+    @lD.log( logBase + '.saveModel' )
+    def saveModel(logger, self):
+        '''save the current model
+        
+        This function is responsible for saving the
+        current parameters of the model. This will 
+        include the calculated weights for the entire
+        population, along with the other configuration
+        information available for the model.
+
+        It will NOT save the NN model. Thus, that will
+        need to be generated from scratch.
+        '''
+
+        folder = None
+
+        try:
+            
+            if not self.GAconfig['saveModel']:
+                return
+
+            # Generate a folder for the current array
+            now = dt.now().strftime('%Y-%m-%d--%H-%M-%S')
+            folder = os.path.join(self.GAconfig['modelFolder'], now)
+            os.makedirs(folder)
+
+            # Save the config file
+            with open(os.path.join(folder, 'config.json'), 'w') as fOut:
+                fOut.write(json.dumps(self.GAconfig))
+
+            # Save the weights
+            for i, weights in enumerate(self.population):
+                fTemp = os.path.join(folder, 'weights_{:010}'.format(i))
+                os.makedirs(fTemp)
+
+                for j, w in enumerate(weights):
+                    np.save('{}/w_{:010}.npy'.format(fTemp, j), w)
+
+        except Exception as e:
+            logger.error('Unable to save the current model: {}'.format(str(e)))
+
+        return folder
