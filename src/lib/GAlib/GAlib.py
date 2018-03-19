@@ -153,6 +153,8 @@ class GA():
 
                 self.population[i] = newWeights
 
+            logger.info('Minimum error after mutation: {}'.format( np.array(self.currentErr).min() ))
+
         except Exception as e:
             logger.error('Unable to do mutation: {}'.format(str(e)))
 
@@ -223,6 +225,7 @@ class GA():
                     self.population[i] = wNew
                     self.currentErr[i] = errVal
 
+            logger.info('Minimum error after crossover: {}'.format( min( self.currentErr ) ))
 
         except Exception as e:
             logger.error('Unable to do crossover: {}'.format(str(e)))
