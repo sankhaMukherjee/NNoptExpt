@@ -78,37 +78,6 @@ class GA():
 
         return
 
-    @lD.log(logBase + '.err')
-    def err(logger, self, X, y):
-        '''calculate the errors for the population
-        
-        [description]
-        
-        Decorators:
-            lD.log
-        
-        Arguments:
-            logger {[type]} -- [description]
-            self {[type]} -- [description]
-            X {[type]} -- [description]
-            y {[type]} -- [description]
-        
-        Returns:
-            [type] -- [description]
-        '''
-
-        try:
-            
-            if self.properConfig:
-                self.currentErr = self.tempN.errorValWs(X, y, self.population) 
-            
-            return self.currentErr
-
-        except Exception as e:
-            logger.error('Unable to generate errors for the population: {}'.format(str(e)))
-
-        return
-
     @lD.log( logBase + '.printErrors' )
     def printErrors(logger, self):
         '''[summary]
@@ -333,5 +302,85 @@ class GA():
             logger.error('Unable to save the current model: {}'.format(str(e)))
 
         return folder
+
+    @lD.log( logBase + '.loadModel' )
+    def loadModel(logger, self, folder):
+        '''[summary]
+        
+        [description]
+        
+        Parameters
+        ----------
+        logger : {[type]}
+            [description]
+        self : {[type]}
+            [description]
+        folder : {[type]}
+            [description]
+        '''
+
+        try:
+            temp = []
+            weightFolders = [ os.path.join(folder, f) for f in os.listdir(folder) if f.startswith('weights_') ]
+            weightFolders = sorted(weightFolders)
+
+            for weightFolder in weightFolders:
+                files = [ os.path.join(weightFolder, f) for f in os.listdir(weightFolder) if f.endswith('.npy') ]
+                weights = [np.load(f) for f in sorted(files)]
+
+                temp.append(weights)
+
+            self.population = temp
+
+            logger.info('New model generated. Note that the errors need to be recalculated ...')
+
+
+        except Exception as e:
+            logger.error('Unable to load the model: {}'.format(str(e) ))
+
+        return
+
+    @lD.log( logBase + '.fit' )
+    def fit(logger, self, X, y, folder=None, verbose=True):
+        '''[summary]
+        
+        [description]
+        
+        Parameters
+        ----------
+        logger : {[type]}
+            [description]
+        self : {[type]}
+            [description]
+        X : {[type]}
+            [description]
+        y : {[type]}
+            [description]
+        folder : {[type]}, optional
+            [description] (the default is None, which [default_description])
+        '''
+
+        if folder is not None:
+            print('Loading an earlier model ...')
+            self.loadModel(folder)
+
+        self.err(X, y)
+        if verbose:
+            self.printErrors()
+
+        for i in range(self.GAconfig['numIterations']):
+            self.mutate()
+            self.crossover(X, y)
+
+            if verbose:
+                print('{:8.2f}'.format( i*100.0/self.GAconfig['numIterations'] ),end='-->')
+                self.printErrors()
+
+        saveFolder = self.saveModel()
+        if verbose:
+            if saveFolder:
+                print('Model saved at: {}'.format(saveFolder))
+
+        return
 
 
