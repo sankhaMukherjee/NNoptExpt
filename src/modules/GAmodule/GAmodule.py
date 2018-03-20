@@ -62,8 +62,9 @@ def runModel(logger):
 
 
         saveFolder = ga.saveModel()
+        if saveFolder:
+            print('Model saved at: {}'.format(saveFolder))
         yHat = ga.predict(X)
-
 
         now = dt.now().strftime('%Y-%m-%d--%H-%M-%S')
         plt.plot(y.flatten(), yHat.flatten(), 's', mfc='blue', mec='None', alpha=0.3)
