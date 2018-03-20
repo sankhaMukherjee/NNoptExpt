@@ -1,3 +1,17 @@
+Version 1.1
+
+Done:
+1. The libGA and NN models are totally rewritten. 
+2. The libGA saves weights instead of NN classes
+3. We insert the data into the weights using placeholders. Huge performance improvement.
+4. GA Model weights can be directly saved. 
+5. Older weights can be loaded before the start of another fitting run. 
+
+ToDo:
+Try something where the selection is based upon both the current errors as well as a bit
+of gradient descent.
+
+---------------------------
 Version 1.0
 
 Done:
