@@ -55,7 +55,7 @@ def runModel(logger):
 
         ga.err(X, y)
 
-        for i in range(100):
+        for i in range(10):
             ga.mutate()
             ga.crossover(X, y)
             ga.printErrors()
