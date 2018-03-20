@@ -1,97 +1,49 @@
-from logs import logDecorator as lD
 import json, os
-
 import numpy as np
-from tqdm import tqdm
+
+from tqdm     import tqdm
+from logs     import logDecorator as lD
+from datetime import datetime as dt
 
 config = json.load(open('../config/config.json'))
 logBase = config['logging']['logBase'] + '.lib.libGA.GA'
 
 class GA():
-    '''[summary]
-    
-    [description]
-    '''
 
     @lD.log(logBase + '.__init__')
-    def __init__(logger, self, nnClass, initParams, initWeights=None):
-        '''Initialize the GA library
+    def __init__(logger, self, nnClass, initParams):
+        '''[summary]
         
-        Initializer finction for the GA class. This function is going
-        to initialize a population. The result of the current state
-        is always equal to the best response of all the instances of
-        the population. The initial population will not have an error
-        score since the individual instances will not be fitted with 
-        any values yet.  
+        [description]
         
-        Decorators:
-            lD.log
-        
-        Arguments:
-            logger {logging.Logger} -- logging object. This should not
-                be passed to this iniitalizer. This will be inserted
-                into the function directly form the decorator. 
-            self {instance} -- variable for the instance of the GA class
-            nnClass {class for optimization} -- This is the instance of
-                the model that we want to train. This model only has the
-                following requirements:
-                1. It must have a way of initializing a class with the 
-                   provided parameters. 
-                2. It must have a `getWeights()` methods that will allow the
-                   class to get the trainable weights for an instance. The 
-                   returned weights must be a list of numpy arrays. 
-                3. It must have a `setWeights()` method that will set the 
-                   weights obtained by the `getWeights` method. Furthermore,
-                   when the weights of one instance is set as the weights 
-                   of another, both must behave such that the two instances
-                   are equivalent.
-                4. It must have a `predict()` method that will allow
-                   the function to be evaluated for provided values of
-                   input.
-                5. It must have an `errorVal()` method that will allow the current
-                   function to find the current error values. The method of
-                   calculating the error is left to the descretion of the 
-                   neural network.
-            initParams {dict} -- Parameters that will be passed to the 
-                class for generating an instance. 
-        
-        Keyword Arguments:
-            initWeights {[type]} -- [description] (default: {None})
+        Parameters
+        ----------
+        logger : {[type]}
+            [description]
+        self : {[type]}
+            [description]
+        nnClass : {[type]}
+            [description]
+        initParams : {[type]}
+            [description]
         '''
 
         self.properConfig = False
         self.currentErr   = None
 
         try:
-            self.GAconfig   = json.load( open('../config/GAconfig.json') )
-            self.population = [ nnClass(**initParams) for _ in range(self.GAconfig['numChildren'])]
-            self.tempN = nnClass(**initParams) # Use this for temp storage
+
+            self.GAconfig     = json.load( open('../config/GAconfig.json') )
+
+            self.population   = []
+            self.tempN        = nnClass(**initParams) # Use this for temp storage
+            temp = self.tempN.getWeights()
+            for i in tqdm(range(self.GAconfig['numChildren'])):
+                self.population.append( [ t + self.GAconfig['initMultiplier']*(np.random.rand()-0.5)  for t in temp] )
+            
             self.properConfig = True
-
         except Exception as e:
-            logger.error('Unable to initialize the GA: {}\n'.format(str(e)))
-            return
-
-        return
-
-    @lD.log(logBase + '.predict')
-    def predict(logger, self, X):
-        '''predict values for all the population
-        
-        [description]
-        
-        Arguments:
-            logger {[type]} -- [description]
-            self {[type]} -- [description]
-            X {[type]} -- [description]
-        '''
-
-        try:
-            results = [p.predict(X) for p in self.population]
-            return results
-        except Exception as e:
-            logger.error('Unable to make predictions: {}'.format(str(e)))
-
+            logger.error('Unable to generate the GA class properly: {}'.format(str(e)))
 
         return
 
@@ -117,9 +69,7 @@ class GA():
         try:
             
             if self.properConfig:
-                self.currentErr = []
-                for p in tqdm(self.population):
-                    self.currentErr.append(p.errorVal(X, y))
+                self.currentErr = self.tempN.errorValWs(X, y, self.population) 
             
             return self.currentErr
 
@@ -153,6 +103,10 @@ class GA():
 
             self.currentErr = np.array(self.currentErr)
             print('[{:}] | [{:}] | [{:}] '.format( self.currentErr.min(), self.currentErr.mean(), self.currentErr.max() ))
+            logger.info('Error info|{}|{}|{}|{}|{}'.format(
+                    np.mean(self.currentErr), np.std(self.currentErr),
+                    np.min(self.currentErr), np.max(self.currentErr), np.median(self.currentErr), 
+                ))
 
 
         except Exception as e:
@@ -187,7 +141,7 @@ class GA():
             self.population = [ self.population[i]  for i in sortIndex ]
             self.currentErr = [ self.currentErr[i]  for i in sortIndex ]
 
-            for i in tqdm(range(len(self.population))):
+            for i in range(len(self.population)):
 
                 logger.info('Mutating value [{}]'.format(i))
 
@@ -196,13 +150,14 @@ class GA():
                     continue
                 
                 logger.info('Updating weights for the new population [{}]'.format(i))
-                weights = self.population[i].getWeights()
                 newWeights = []
-                for w in weights:
+                for w in self.population[i]:
                     t = w*( 1 + 2*self.GAconfig['mutation']['multiplier']*(np.random.random(w.shape) - 0.5) )
                     newWeights.append( t )
 
-                self.population[i].setWeights( newWeights )
+                self.population[i] = newWeights
+
+            logger.info('Minimum error after mutation: {}'.format( np.array(self.currentErr).min() ))
 
         except Exception as e:
             logger.error('Unable to do mutation: {}'.format(str(e)))
@@ -233,18 +188,21 @@ class GA():
                 return
 
             sortIndex = np.argsort( self.currentErr )
-            self.population = [ self.population[i]  for i in sortIndex ]
-            self.currentErr = [ self.currentErr[i]  for i in sortIndex ]
+            self.populationOld = [ self.population[i]  for i in sortIndex ]
+            self.population    = [ self.population[i]  for i in sortIndex ]
+            
+            self.currentErrOld = [ self.currentErr[i]  for i in sortIndex ]
+            self.currentErr    = [ self.currentErr[i]  for i in sortIndex ]
             
             normalize = np.array(self.currentErr).copy()
             normalize = normalize / normalize.max()
             normalize = 1 - normalize
             normalize = normalize / normalize.sum()
 
-            choices = np.random.choice( range(len(self.currentErr)), size=(100, 2) , p=normalize )
+            choices = np.random.choice( range(len(self.currentErr)), size=(len(self.population), 2) , p=normalize )
             alphas  = np.random.random( len(self.currentErr) )
 
-            for i in tqdm(range(len(self.population))):
+            for i in range(len(self.population)):
 
                 logger.info('Crossover value [{}]'.format(i))
 
@@ -257,22 +215,172 @@ class GA():
 
                 # Generate a new error
                 # -------------------------
-                w1 = self.population[c1].getWeights()
-                w2 = self.population[c2].getWeights()
+                w1 = self.populationOld[c1]
+                w2 = self.populationOld[c2]
                 wNew = [ a*m + (1-a)*n  for m, n in zip( w1, w2 ) ]
-                self.tempN.setWeights( wNew )
-                errVal = self.tempN.errorVal(X, y)
+
+                errVal = self.tempN.errorValW(X, y, wNew)
 
                 # If this is better, update the current neuron
                 # There is a potential for problem here, but 
                 # we shall neglect it for now. 
                 # ---------------------------------------------
-                if errVal < self.currentErr[i]:
-                    self.population[i].setWeights( wNew )
+                if errVal < self.currentErrOld[i]:
+                    self.population[i] = wNew
                     self.currentErr[i] = errVal
 
+            logger.info('Minimum error after crossover: {}'.format( min( self.currentErr ) ))
 
         except Exception as e:
             logger.error('Unable to do crossover: {}'.format(str(e)))
 
         return
+
+    @lD.log( logBase + '.predict' )
+    def predict(logger, self, X):
+        '''[summary]
+        
+        [description]
+        
+        Decorators:
+            lD.log
+        
+        Arguments:
+            logger {[type]} -- [description]
+            self {[type]} -- [description]
+            X {[type]} -- [description]
+        '''
+
+        prediction = None
+
+        try:
+            prediction = self.tempN.predict(X, self.population[0])
+        except Exception as e:
+            logger.error('Unable to make predictions ... : {}'.format( str(e) ))
+
+        return prediction
+
+    @lD.log( logBase + '.saveModel' )
+    def saveModel(logger, self):
+        '''save the current model
+        
+        This function is responsible for saving the
+        current parameters of the model. This will 
+        include the calculated weights for the entire
+        population, along with the other configuration
+        information available for the model.
+
+        It will NOT save the NN model. Thus, that will
+        need to be generated from scratch.
+        '''
+
+        folder = None
+
+        try:
+            
+            if not self.GAconfig['saveModel']:
+                return
+
+            # Generate a folder for the current array
+            now = dt.now().strftime('%Y-%m-%d--%H-%M-%S')
+            folder = os.path.join(self.GAconfig['modelFolder'], now)
+            os.makedirs(folder)
+
+            # Save the config file
+            with open(os.path.join(folder, 'config.json'), 'w') as fOut:
+                fOut.write(json.dumps(self.GAconfig))
+
+            # Save the weights
+            for i, weights in enumerate(self.population):
+                fTemp = os.path.join(folder, 'weights_{:010}'.format(i))
+                os.makedirs(fTemp)
+
+                for j, w in enumerate(weights):
+                    np.save('{}/w_{:010}.npy'.format(fTemp, j), w)
+
+        except Exception as e:
+            logger.error('Unable to save the current model: {}'.format(str(e)))
+
+        return folder
+
+    @lD.log( logBase + '.loadModel' )
+    def loadModel(logger, self, folder):
+        '''[summary]
+        
+        [description]
+        
+        Parameters
+        ----------
+        logger : {[type]}
+            [description]
+        self : {[type]}
+            [description]
+        folder : {[type]}
+            [description]
+        '''
+
+        try:
+            temp = []
+            weightFolders = [ os.path.join(folder, f) for f in os.listdir(folder) if f.startswith('weights_') ]
+            weightFolders = sorted(weightFolders)
+
+            for weightFolder in weightFolders:
+                files = [ os.path.join(weightFolder, f) for f in os.listdir(weightFolder) if f.endswith('.npy') ]
+                weights = [np.load(f) for f in sorted(files)]
+
+                temp.append(weights)
+
+            self.population = temp
+
+            logger.info('New model generated. Note that the errors need to be recalculated ...')
+
+
+        except Exception as e:
+            logger.error('Unable to load the model: {}'.format(str(e) ))
+
+        return
+
+    @lD.log( logBase + '.fit' )
+    def fit(logger, self, X, y, folder=None, verbose=True):
+        '''[summary]
+        
+        [description]
+        
+        Parameters
+        ----------
+        logger : {[type]}
+            [description]
+        self : {[type]}
+            [description]
+        X : {[type]}
+            [description]
+        y : {[type]}
+            [description]
+        folder : {[type]}, optional
+            [description] (the default is None, which [default_description])
+        '''
+
+        if folder is not None:
+            print('Loading an earlier model ...')
+            self.loadModel(folder)
+
+        self.err(X, y)
+        if verbose:
+            self.printErrors()
+
+        for i in range(self.GAconfig['numIterations']):
+            self.mutate()
+            self.crossover(X, y)
+
+            if verbose:
+                print('{:8.2f}'.format( i*100.0/self.GAconfig['numIterations'] ),end='-->')
+                self.printErrors()
+
+        saveFolder = self.saveModel()
+        if verbose:
+            if saveFolder:
+                print('Model saved at: {}'.format(saveFolder))
+
+        return
+
+

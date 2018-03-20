@@ -1,12 +1,15 @@
 {
-    "numChildren": 100,
-    "elitism":{
-        "toDo": true,
-        "numElite": 3
+    "initMultiplier" : 10,
+    "numChildren"    : 500,
+    "elitism"        : {
+        "toDo"     : true,
+        "numElite" : 3
     },
-    "mutation":{
-        "toDo":true,
-        "multiplier":0.1
-    }
-
+    "mutation"       : {
+        "toDo"       : true,
+        "multiplier" : 0.1
+    },
+    "numIterations"  : 10,
+    "modelFolder"    : "../models",
+    "saveModel"      : true
 }
