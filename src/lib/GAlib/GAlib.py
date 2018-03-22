@@ -1,12 +1,63 @@
 import json, os
 import numpy as np
 
+from multiprocessing import cpu_count, Pool
+
 from tqdm     import tqdm
 from logs     import logDecorator as lD
 from datetime import datetime as dt
 
 config = json.load(open('../config/config.json'))
 logBase = config['logging']['logBase'] + '.lib.libGA.GA'
+
+@lD.log( logBase + '.crossover_i' )
+def crossover_i(logger, vals):
+    '''Crossover the i_th gene
+    
+    This does crossover for the ith gene. This will be useful
+    when we are doing crossover in a multiprocessing environment. 
+    This will allow us to significantly improve on execution time
+    by parallelizing the computation. 
+    
+    Parameters
+    ----------
+    logger : {[type]}
+        [description]
+    self : {[type]}
+        [description]
+    i : {[type]}
+        [description]
+    choices : {[type]}
+        [description]
+    alphas : {[type]}
+        [description]
+    X : {[type]}
+        [description]
+    y : {[type]}
+        [description]
+    '''
+
+    try:
+
+            i, numElite, w1, w2, a = vals
+
+            logger.info('Crossover value [{}]'.format(i))
+
+            if (i < numElite):
+                logger.info('Skipping this due to elitism [{}]'.format(i))
+                return i, None
+
+            # Generate a new error
+            # -------------------------
+            wNew = [ a*m + (1-a)*n  for m, n in zip( w1, w2 ) ]
+
+            return i, wNew
+
+    except Exception as e:
+        logger.error('Unable to crossover for gene number: {}'.format( str(e) ))
+        return i, None
+
+    return
 
 class GA():
 
@@ -164,6 +215,22 @@ class GA():
 
         return
 
+
+
+    @staticmethod
+    def generateValues(N, numElite, choices, alphas, population):
+        '''Generator for the imap
+        '''
+
+        for i in range(N):
+            c1, c2 = choices[i]
+            a      = alphas[i]
+            w1     = population[c1]
+            w2     = population[c2]
+            yield i, numElite, w1, w2, a
+
+        return
+
     @lD.log( logBase + '.crossover' )
     def crossover(logger, self, X, y):
         '''Crossover and selection
@@ -178,6 +245,7 @@ class GA():
             self {[type]} -- [description]
         '''
 
+
         try:
             if not self.properConfig:
                 logger.error('The GA has not been initialized properly. This step is skipped ...')
@@ -188,6 +256,7 @@ class GA():
                 return
 
             sortIndex = np.argsort( self.currentErr )
+            
             self.populationOld = [ self.population[i]  for i in sortIndex ]
             self.population    = [ self.population[i]  for i in sortIndex ]
             
@@ -198,36 +267,38 @@ class GA():
             normalize = normalize / normalize.max()
             normalize = 1 - normalize
             normalize = normalize / normalize.sum()
-
+            
             choices = np.random.choice( range(len(self.currentErr)), size=(len(self.population), 2) , p=normalize )
             alphas  = np.random.random( len(self.currentErr) )
 
+            if self.GAconfig['nPool'] > 0:
+                p = Pool(self.GAconfig['nPool'])
+            else:
+                p = Pool(cpu_count())
+
+            if not self.GAconfig['elitism']['toDo']:
+                numElite =  0
+            else: 
+                numElite = self.GAconfig['elitism']['numElite']
+
+            arguments = self.generateValues(
+                len(self.currentErr), numElite, choices, alphas, 
+                [p for p in self.populationOld])
+
+            # Generate a new population
+            for i, wNew in p.imap(crossover_i, arguments):
+                if wNew is None:
+                    continue                    
+                self.population[i] = wNew
+
+            # Recalculate the errors
+            self.err(X, y)
+
+            # Do a selection from the old population if necessary
             for i in range(len(self.population)):
-
-                logger.info('Crossover value [{}]'.format(i))
-
-                if self.GAconfig['elitism']['toDo'] and (i < self.GAconfig['elitism']['numElite']):
-                    logger.info('Skipping this due to elitism [{}]'.format(i))
-                    continue
-
-                c1, c2 = choices[i]
-                a = alphas[i]
-
-                # Generate a new error
-                # -------------------------
-                w1 = self.populationOld[c1]
-                w2 = self.populationOld[c2]
-                wNew = [ a*m + (1-a)*n  for m, n in zip( w1, w2 ) ]
-
-                errVal = self.tempN.errorValW(X, y, wNew)
-
-                # If this is better, update the current neuron
-                # There is a potential for problem here, but 
-                # we shall neglect it for now. 
-                # ---------------------------------------------
-                if errVal < self.currentErrOld[i]:
-                    self.population[i] = wNew
-                    self.currentErr[i] = errVal
+                if self.currentErr[i] > self.currentErrOld[i]:
+                    self.currentErr[i] = self.currentErrOld[i]
+                    self.population[i] = self.populationOld[i]
 
             logger.info('Minimum error after crossover: {}'.format( min( self.currentErr ) ))
 

@@ -204,7 +204,8 @@ def withFitFN(logger):
         print('Generating the GA model ...')    
         ga = GAlib.GA( NNmodel.NNmodel, initParams )
 
-        ga.fit(X, y, folder = '../models/2018-03-20--16-13-40')
+        # ga.fit(X, y, folder = '../models/2018-03-20--16-13-40')
+        ga.fit(X, y, folder = None)
 
         yHat = ga.predict(X)
         now = dt.now().strftime('%Y-%m-%d--%H-%M-%S')
