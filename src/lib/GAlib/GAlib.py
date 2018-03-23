@@ -215,8 +215,6 @@ class GA():
 
         return
 
-
-
     @staticmethod
     def generateValues(N, numElite, choices, alphas, population):
         '''Generator for the imap
@@ -247,6 +245,9 @@ class GA():
 
 
         try:
+
+            logger.info('------------ AAAA -------> [     0]')
+            
             if not self.properConfig:
                 logger.error('The GA has not been initialized properly. This step is skipped ...')
                 return
@@ -255,6 +256,7 @@ class GA():
                 logger.error('Errors have not been calculated yet. This step will be skipped ...')
                 return
 
+            
             sortIndex = np.argsort( self.currentErr )
             
             self.populationOld = [ self.population[i]  for i in sortIndex ]
@@ -290,6 +292,8 @@ class GA():
                 if wNew is None:
                     continue                    
                 self.population[i] = wNew
+
+            p.close()
 
             # Recalculate the errors
             self.err(X, y)
@@ -448,8 +452,8 @@ class GA():
                 self.printErrors()
 
         saveFolder = self.saveModel()
-        if verbose:
-            if saveFolder:
+        if saveFolder:
+            if verbose:
                 print('Model saved at: {}'.format(saveFolder))
                 return saveFolder
 

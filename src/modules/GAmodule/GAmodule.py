@@ -277,6 +277,7 @@ def plotFirstFew(logger):
     plotResults(y, yHat, prefix='try_0000')
 
     folder = None
+    folder = '../models/2018-03-23--13-48-52'
     
 
     for i in range(10):
