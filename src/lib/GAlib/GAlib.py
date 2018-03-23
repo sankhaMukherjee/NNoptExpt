@@ -451,6 +451,7 @@ class GA():
         if verbose:
             if saveFolder:
                 print('Model saved at: {}'.format(saveFolder))
+                return saveFolder
 
         return
 
