@@ -215,8 +215,6 @@ class GA():
 
         return
 
-
-
     @staticmethod
     def generateValues(N, numElite, choices, alphas, population):
         '''Generator for the imap
@@ -450,8 +448,8 @@ class GA():
                 self.printErrors()
 
         saveFolder = self.saveModel()
-        if verbose:
-            if saveFolder:
+        if saveFolder:
+            if verbose:
                 print('Model saved at: {}'.format(saveFolder))
                 return saveFolder
 
