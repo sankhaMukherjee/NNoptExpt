@@ -276,13 +276,7 @@ def plotFirstFew(logger):
 
     plotResults(y, yHat, prefix='try100_0000')
 
-<<<<<<< HEAD
-    folder = '../models/2018-03-23--10-28-21'
-=======
     folder = None
-    folder = '../models/2018-03-23--13-48-52'
->>>>>>> 5ffa4bde5d668c04edcb68ad74b95ac1dc60a0c5
-    
 
     for i in range(10):
         folder = ga.fit(X, y, folder = folder)
