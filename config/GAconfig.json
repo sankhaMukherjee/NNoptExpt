@@ -9,7 +9,7 @@
         "toDo"       : true,
         "multiplier" : 0.1
     },
-    "numIterations"  : 10,
+    "numIterations"  : 100,
     "modelFolder"    : "../models",
     "saveModel"      : true,
     "nPool"          : -1

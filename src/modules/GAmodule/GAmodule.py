@@ -274,15 +274,15 @@ def plotFirstFew(logger):
     ga.err(X, y)
     yHat = ga.predict(X)
 
-    plotResults(y, yHat, prefix='try_0000')
+    plotResults(y, yHat, prefix='try100_0000')
 
-    folder = None
+    folder = '../models/2018-03-23--10-28-21'
     
 
     for i in range(10):
         folder = ga.fit(X, y, folder = folder)
         yHat = ga.predict(X)
-        plotResults(y, yHat, prefix='try_{:04}'.format(i))
+        plotResults(y, yHat, prefix='try100_{:04}'.format(i))
         
 
     return

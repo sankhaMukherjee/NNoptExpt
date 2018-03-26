@@ -291,6 +291,8 @@ class GA():
                     continue                    
                 self.population[i] = wNew
 
+            p.close()
+
             # Recalculate the errors
             self.err(X, y)
 
